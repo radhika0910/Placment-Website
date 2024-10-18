@@ -16,7 +16,7 @@ The aim for doing this project was to make recruitment process in online mode an
 - ExpressJs (Web Application Framework for Node.Js)
 - AngularJs (Frontend Framework)
 - Node.Js (Server side JavaScript runtime environment)
-- Nodemailer (Node.Js module to send emails)
+<!-- - Nodemailer (Node.Js module to send emails) -->
 
 
 # Initial Requirements
