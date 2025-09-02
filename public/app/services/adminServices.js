@@ -42,6 +42,22 @@ angular
       return $http.get("/api/company/allApplied/" + company_id);
     };
 
+    // Get not registered students for a company
+adminFactory.getNotRegisteredStudents = function (company_id) {
+    return $http.get("/api/company/notRegistered/" + company_id);
+};
+
+// Export not registered students to Excel
+adminFactory.exportNotRegisteredStudentsCSV = function (company_id) {
+    return $http.get("/api/company/exportNotRegisteredCSV/" + company_id, {
+        responseType: "arraybuffer"
+    });
+};
+
+adminFactory.getNotRegisteredStudentsCount = function(company_id) {
+    return $http.get("/api/company/notRegisteredCount/" + company_id);
+};
+
     // withdraw application
     adminFactory.withdrawApplication = function (data) {
       return $http.post("/api/apply/withdraw", data);

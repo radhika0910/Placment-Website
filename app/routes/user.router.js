@@ -17,6 +17,7 @@ router.get('/profile', jwtMiddleware.verify, authMiddleware.ensureLoggedIn, user
 router.get('/getOne/:college_id', jwtMiddleware.verify, authMiddleware.ensureOfficialPlacementTeam, userController.getOne)
 router.post('/updateOne', jwtMiddleware.verify, authMiddleware.ensureOfficialPlacementTeam, userController.updateOne)
 router.post('/updateProfile', jwtMiddleware.verify, authMiddleware.ensureLoggedIn, userController.updateProfile)
+router.post('/register', userController.registerUser);
 router.post('/changePassword', jwtMiddleware.verify, authMiddleware.ensureLoggedIn, userController.changePassword)
 router.get('/contributions', jwtMiddleware.verify, authMiddleware.ensureLoggedIn, userController.contributions)
 router.post('/updateBatch', jwtMiddleware.verify, authMiddleware.ensureOfficialPlacementTeam, userController.updateBatch)

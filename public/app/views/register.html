@@ -1,0 +1,16 @@
+<div ng-controller="profileCtrl as profileCtrl">
+  <form ng-submit="profileCtrl.registerUser(profileCtrl.userData)">
+    <input type="text" ng-model="profileCtrl.userData.student_name" placeholder="Name*" required>
+    <input type="text" ng-model="profileCtrl.userData.college_id" placeholder="College ID*" required>
+    <input type="text" ng-model="profileCtrl.userData.degree" placeholder="Degree*" required>
+    <input type="text" ng-model="profileCtrl.userData.department" placeholder="Department*" required>
+    <input type="email" ng-model="profileCtrl.userData.college_email" placeholder="College Email*" required>
+    <input type="text" ng-model="profileCtrl.userData.contact_no" placeholder="Contact No.*" required>
+    <input type="number" ng-model="profileCtrl.userData.cgpa" placeholder="CGPA*" required>
+    <input type="number" ng-model="profileCtrl.userData.active_backlogs" placeholder="Active Backlogs*" required>
+    <input type="password" ng-model="profileCtrl.userData.password" placeholder="Password*" required>
+    <button type="submit">Register</button>
+    <div ng-if="profileCtrl.registerUserSuccessMsg">{{profileCtrl.registerUserSuccessMsg}}</div>
+    <div ng-if="profileCtrl.registerUserErrorMsg">{{profileCtrl.registerUserErrorMsg}}</div>
+</form>
+</div>

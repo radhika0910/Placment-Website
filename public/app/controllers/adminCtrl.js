@@ -206,21 +206,17 @@ angular
     }
   )
 
-  .controller(
+.controller(
     "registeredStudentsCtrl",
 
     function ($routeParams, student, admin, $scope) {
       let app = this;
 
-      // assign javascript method reference in controller
       $scope.saveAsExcel = saveAsExcel;
-
       $scope.saveAsCSV = saveAsCSV;
 
-      // Loading Message
       app.getRegisteredStudentsLoading = true;
 
-      // Get Total Registered Students Function
       function totalRegisteredStudent() {
         admin
           .getRegisteredStudents($routeParams.company_id)
@@ -237,12 +233,70 @@ angular
 
       totalRegisteredStudent();
 
+      // Get Not Registered Students
+      app.getNotRegisteredStudentsLoading = false;
+      app.notRegisteredStudents = [];
+
+      app.fetchNotRegisteredStudents = function () {
+        app.getNotRegisteredStudentsLoading = true;
+        admin
+          .getNotRegisteredStudents($routeParams.company_id)
+          .then(function (data) {
+            if (data.data.success) {
+              app.notRegisteredStudents = data.data.students;
+              app.getNotRegisteredStudentsLoading = false;
+            } else {
+              app.errorMsg = data.data.message;
+              app.getNotRegisteredStudentsLoading = false;
+            }
+          });
+      };
+
+      // Export Not Registered Students to Excel
+      $scope.exportNotRegisteredStudentsExcel = function () {
+        admin
+          .exportNotRegisteredStudentsExcel($routeParams.company_id)
+          .then(function (data) {
+            if (data.status.toString() === "200") {
+              const a = document.createElement("a");
+              a.href = URL.createObjectURL(
+                new Blob([data.data], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" })
+              );
+              a.setAttribute(
+                "download",
+                app.company.company_name.split(" ").join("_") + "_NotRegisteredStudents.xlsx"
+              );
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+            }
+          });
+      };
+
+      // Export Not Registered Students to CSV
+      $scope.exportNotRegisteredStudentsCSV = function () {
+        admin
+          .exportNotRegisteredStudentsCSV($routeParams.company_id)
+          .then(function (data) {
+            if (data.status.toString() === "200") {
+              const a = document.createElement("a");
+              a.href = URL.createObjectURL(
+                new Blob([data.data], { type: "text/csv" })
+              );
+              a.setAttribute(
+                "download",
+                app.company.company_name.split(" ").join("_") + "_NotRegisteredStudents.csv"
+              );
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+            }
+          });
+      };
+
       // Delete Registration
       $scope.withdrawRegistration = function (college_id) {
-        // Loading True
         app.getRegisteredStudentsLoading = true;
-
-        // Withdraw Candidates Registration
         admin
           .withdrawApplication({
             college_id: college_id,
@@ -255,15 +309,13 @@ angular
           });
       };
 
-      // export
+      // Export Registered Students' Resumes
       app.exportResumesOfRegisteredStudents = function () {
-        // admin exporting resumes
         admin
           .exportResumesOfRegisteredStudents($routeParams.company_id)
           .then(function (data) {
             console.log(data);
             if (data.status.toString() === "200") {
-              // First Method
               const a = document.createElement("a");
               a.href = URL.createObjectURL(
                 new Blob([data.data], { type: "application/zip" })
@@ -276,31 +328,27 @@ angular
               a.click();
               document.body.removeChild(a);
             }
-
-            // Second Method with Object_id.zip file name
-            /*
-            let URL = $window.URL || $window.webkitURL || $window.mozURL || $window.msURL;
-
-            if ( URL ) {
-
-                let blob = new Blob([data.data],{type:'application/zip'});
-                let url = URL.createObjectURL(blob);
-                $window.open(url);
-            }
-            */
-
-            // Third Method with Object_id.zip
-            /*
-            let file = new File([data.data], {type: "application/zip"});
-            let exportUrl = URL.createObjectURL(file);
-            window.location.assign(exportUrl);
-            URL.revokeObjectURL(exportUrl);
-            */
           });
       };
     }
-  )
+)
 
+
+.controller(
+    "notRegisteredStudentsCtrl",
+    function ($routeParams, admin, $scope) {
+        let app = this;
+        console.log('notRegisteredStudentsCtrl loaded'); // Should print
+
+        admin.getNotRegisteredStudentsCount($routeParams.company_id)
+            .then(function(data) {
+                console.log('API called'); // Should print
+                if (data.data.success) {
+                    app.unregisteredCount = data.data.count;
+                }
+            });
+    }
+)
   // Coordinator Controller
   .controller("coordinatorCtrl", function (admin, $scope) {
     let app = this;
@@ -378,7 +426,21 @@ angular
         }
       });
     };
+    app.registerUser = function (userData) {
+    app.registerUserSuccessMsg = false;
+    app.registerUserErrorMsg = false;
+
+    admin.registerUser(app.userData).then(function (data) {
+      if (data.data.success) {
+        app.registerUserSuccessMsg = data.data.message;
+      } else {
+        app.registerUserErrorMsg = data.data.message;
+      }
+    });
+  };
   })
+
+  
 
   // Red Flag management controller
   .controller("redFlagManagementCtrl", function (admin) {

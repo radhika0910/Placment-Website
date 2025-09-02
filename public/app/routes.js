@@ -32,6 +32,13 @@ var app = angular
         templateUrl: "/app/views/authentication/login.html",
         authenticated: false,
       })
+      .when("/register", {
+        templateUrl: "/app/views/authentication/register.html",
+        authenticated: false,
+        controller: 'profileCtrl',
+            controllerAs: 'profileCtrl'
+      })
+
 
       .when("/newlogin", {
                 templateUrl: "/app/views/authentication/newlogin.html",
@@ -103,6 +110,14 @@ var app = angular
         authenticated: true,
         controller: "registeredStudentsCtrl",
         controllerAs: "registeredStudents",
+        permission: ["admin", "spc", "faculty-coordinator"],
+      })
+
+      .when("/notregisteredStudents/:company_id", {
+        templateUrl: "/app/views/company/admin/notRegisteredStudents.html",
+        authenticated: true,
+        controller: "notRegisteredStudentsCtrl",
+        controllerAs: "notRegisteredStudents",
         permission: ["admin", "spc", "faculty-coordinator"],
       })
 

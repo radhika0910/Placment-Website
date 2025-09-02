@@ -1,0 +1,86 @@
+<div class="row page-titles">
+    <!-- Heading -->
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Not Registered Students</h4>
+    </div>
+</div>
+
+<!-- Loading Message -->
+<div class="alert alert-primary alert-rounded" ng-show="notRegisteredStudents.getNotRegisteredStudentsLoading">
+    <strong> Loading!</strong> Hold on. We are fetching not registered students...
+</div>
+
+<!-- Not Registered Students Table -->
+<div class="row" ng-show="!notRegisteredStudents.getNotRegisteredStudentsLoading">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title text-center">
+                    {{ notRegisteredStudents.company.company_name}} Not Registered Students list
+                </h4>
+
+                <!-- Form Input to search a particular Student -->
+                <form class="form-material">
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-line"
+                            placeholder="Type here to Search for student name" ng-model="studentName" />
+                    </div>
+                </form>
+
+                <!-- Total Not Registered Students -->
+                <span class="text-purple">Total {{ notRegisteredStudents.notRegisteredStudents.length }}
+                    Not Registered Student(s).</span>
+                <div class="text-center m-3">
+                    <button type="button" class="btn btn-warning btn-rounded"
+                        onclick="saveAsCSV('not-registered-table', 'not-registered')">
+                        Download Not Registered Students
+                    </button>
+                    <div class="mt-2">
+                        <span class="font-weight-bold">Unplaced Students: </span>
+                        <span>{{ notRegisteredStudents.notRegisteredStudents.length }}</span>
+                    </div>
+                </div>
+
+                <h6 class="card-subtitle"></h6>
+                <div class="table-responsive" ng-if="notRegisteredStudents.notRegisteredStudents.length > 0">
+                    <table id="not-registered-table" class="table table-bordered m-t-30 table-hover contact-list"
+                        data-paging="true" data-paging-size="7">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Name</th>
+                                <th>College ID</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Program</th>
+                                <th>Degree</th>
+                                <th>Branch</th>
+                                <th>CGPA</th>
+                                <th>10th</th>
+                                <th>12th</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                ng-repeat="student in notRegisteredStudents.notRegisteredStudents | filter : studentName">
+                                <td>{{ $index + 1}}.</td>
+                                <td>
+                                    <a class="text-primary"> {{ student.student_name }}</a>
+                                </td>
+                                <td><a>{{ student.college_id }} </a></td>
+                                <td>+91 {{ student.alternate_contact_no }}</td>
+                                <td>{{ student.college_email }}</td>
+                                <td>{{ student.program }}</td>
+                                <td>{{ student.degree }}</td>
+                                <td>{{ student.department }}</td>
+                                <td>{{ student.cgpa }}</td>
+                                <td>{{ student.matric_marks }}</td>
+                                <td>{{ student.senior_marks }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

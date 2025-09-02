@@ -498,6 +498,20 @@ angular
         }
       });
     };
+    
+app.registerUser = function (userData) {
+        app.registerUserSuccessMsg = false;
+        app.registerUserErrorMsg = false;
+
+        student.registerUser(userData).then(function (data) {
+            if (data.data.success) {
+                app.registerUserSuccessMsg = data.data.message;
+            } else {
+                app.registerUserErrorMsg = data.data.message;
+            }
+        });
+    };
+    
 
     // Resume Loading/Error/Success Message
     app.resumeUploadLoading = false;
@@ -946,3 +960,5 @@ angular
       }
     };
   });
+
+  

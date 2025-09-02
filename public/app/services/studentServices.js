@@ -74,6 +74,11 @@ angular.module('studentServices',[])
 		return $http.post('/api/user/updateProfile', profileData);
 	};
 
+   studentFactory.registerUser = function(userData) {
+        return $http.post('/api/user/register', userData);
+    };
+
+
 	// send feedback
     studentFactory.sendFeedback = function (feedbackData) {
         return $http.post('/api/feedback/add', feedbackData);

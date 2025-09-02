@@ -9,12 +9,14 @@ router.post(
   authMiddleware.ensureLoggedIn,
   companyController.getAll
 );
+router.get('/exportNotRegisteredCSV/:company_id', companyController.exportNotRegisteredStudentsCSV);
 router.get(
   "/getOne/:company_id",
   jwtMiddleware.verify,
   authMiddleware.ensureLoggedIn,
   companyController.getOne
 );
+// router.get('/notRegisteredCount/:company_id', companyController.getNotRegisteredStudentsCount);
 router.post(
   "/add",
   jwtMiddleware.verify,

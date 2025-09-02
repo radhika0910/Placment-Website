@@ -1,7 +1,7 @@
 const from = "kkmkittu36@gmail.com";
 const baseUrl = "https://tpncg-portal.onrender.com";
 const email_signature =
-  "<br><br>With Regards.<br><br>Dr. Gauri Dhopavkar<br>Dean, Training & Placement<br>YCCE Nagpur<br>+911234567890";
+  "<br><br>With Regards.<br><br>Dr. Gauri Dhopavkar<br>Dean, Training & Placement<br>Nagpur<br>+911234567890";
 
 exports.getEmailOpts = (data, mailType) => {
   switch (mailType) {
@@ -9,7 +9,7 @@ exports.getEmailOpts = (data, mailType) => {
       return {
         from: from,
         to: data.college_email,
-        subject: "Login Request : T&P, YCCE Nagpur",
+        subject: "Login Request : T&P, Nagpur",
         text:
           "Hello " +
           data.student_name +
@@ -27,7 +27,7 @@ exports.getEmailOpts = (data, mailType) => {
       return {
         from: from,
         to: data.college_id + "@ycce.in",
-        subject: "Reset Password Request : Placement Cell, YCCE Nagpur",
+        subject: "Reset Password Request : Placement Cell,  Nagpur",
         text:
           "Hello " +
           data.student_name +
@@ -48,7 +48,7 @@ exports.getEmailOpts = (data, mailType) => {
       return {
         from: from,
         to: data.college_id + "@ycce.in",
-        subject: "Password Updated : T&P Cell, YCCE Nagpur",
+        subject: "Password Updated : T&P Cell,  Nagpur",
         text:
           "Hello " +
           data.student_name +
@@ -200,7 +200,7 @@ exports.getEmailOpts = (data, mailType) => {
                 <p>Regards,</p>
                 <p>Dr. Gauri Dhopavkar</p>
                 <p>Dean, Training & Placement</p>
-                <p>YCCE Nagpur</p>
+                <p> Nagpur</p>
               </div>
             </body>
           </html>`,
@@ -231,7 +231,7 @@ exports.getSMSOpts = (data, smsType) => {
         "\n" +
         "Thanks" +
         "\n" +
-        "YCCE Nagpur"
+        " Nagpur"
       );
       break;
 

@@ -9,7 +9,7 @@ module.exports = {
         program         : 'N/A',
         cgpa            : 'N/A',
         alternate_email : 'N/A',
-        address         : 'YCCE Wanadongri',
+        address         : ' Wanadongri',
         city            : 'Nagpur',
         state           : 'Maharashtra',
         post_code       : '441110',

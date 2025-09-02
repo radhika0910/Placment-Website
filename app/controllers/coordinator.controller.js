@@ -6,7 +6,7 @@ exports.add = async (req, res) => {
     const _b = req.body;
 
     if(_b.college_email.toLowerCase().split("@")[1] !== Constant.emailSuffix) {
-        res.status(200).json({ success : false, message : 'Invalid YCCE College Email ID.'})
+        res.status(200).json({ success : false, message : 'Invalid College Email ID.'})
     } else {
 
         try {

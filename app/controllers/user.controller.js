@@ -5,7 +5,7 @@ const Placements = require('../models/placements.model');
 const jwtService = require('../services/jwt.service');
 const Mailer = require('../services/mailer.service');
 const Utility = require('../services/utility.service');
-const bcryptjs = require('bcryptjs');
+// const bcryptjs = require('bcryptjs');
 
 exports.sendOTP = async (req, res) => {
     const _b = req.body;
@@ -272,7 +272,7 @@ exports.profile = (req, res) => {
 exports.updateProfile = (req, res) => {
 
     const _b = req.body;
-    const userDataFields = ["matric_marks","matric_board","senior_marks","senior_board","alternate_contact_no","address","city","post_code","state","country","placement_status","company1","company2","company3","company4","linkedln_link","resume_url"];
+    const userDataFields = ["cgpa","matric_marks","matric_board","senior_marks","senior_board","alternate_contact_no","address","city","post_code","state","country","placement_status","company1","company2","company3","company4","linkedln_link","resume_url"];
 
     User
         .findOne({ college_id : req.decoded.college_id })
@@ -376,4 +376,58 @@ exports.achievements = (req, res) => {
             console.error(err);
             res.status(200).json({ success : false, message : 'Something went wrong!' })
         })
+}
+
+
+exports.registerUser = async (req, res) => {
+    try {
+        const {
+            student_name,
+            college_id,
+            degree,
+        department,
+            college_email,
+            contact_no,
+            cgpa,
+            active_backlogs,
+            password
+        } = req.body;
+
+        if (
+            !student_name ||
+            !college_id ||
+            !degree ||
+            !department ||
+            !college_email ||
+            !contact_no ||
+            !cgpa ||
+            active_backlogs === undefined ||
+            !password
+        ) {
+            return res.status(400).json({ success: false, message: 'All fields are required.' });
+        }
+
+        const existingUser = await User.findOne({ college_id });
+        if (existingUser) {
+            return res.status(400).json({ success: false, message: 'User already exists.' });
+        }
+
+        const newUser = new User({
+            student_name,
+            college_id,
+            degree,
+            department,
+            college_email,
+            contact_no,
+            cgpa,
+            active_backlogs,
+            password
+        });
+
+        await newUser.save();
+        res.status(201).json({ success: true, message: 'User registered successfully.' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: 'Something went wrong!' });
+    }
 }

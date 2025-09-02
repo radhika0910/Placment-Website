@@ -37,6 +37,7 @@ var passwordValidator = [
 var userSchema = new mongoose.Schema({
   student_name: {
     type: String,
+    required: true,
   },
   college_id: {
     type: Number,
@@ -131,6 +132,8 @@ var userSchema = new mongoose.Schema({
     type: String,
     //select : false
   },
+   active_backlogs: { type: Number, required: true },
+   
   active: {
     type: Boolean,
     default: true,
@@ -165,9 +168,9 @@ var userSchema = new mongoose.Schema({
 userSchema.pre("save", async function (next) {
   var user = this;
 
-  if(user.isModified("password")) {
-    this.password = await bcryptjs.hash(user.password, 12);
-  }
+  // if(user.isModified("password")) {
+  //   this.password = await bcryptjs.hash(user.password, 12);
+  // }
   next()
   // bcrypt.hash(user.password, null, null, function (err, hash) {
   //   // Store hash in your password DB.
@@ -189,7 +192,7 @@ userSchema.plugin(titlize, {
 
 // Password compare method
 userSchema.methods.comparePassword = function (password) {
-  return bcrypt.compareSync(password, this.password);
+  return password === this.password;
 };
 
 module.exports = mongoose.model("User", userSchema);

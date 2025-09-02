@@ -7,10 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Description Meta tag -->
-  <meta name="description" content="Welcome to T&P Portal YCCE, Nagpur.">
+  <meta name="description" content="Welcome to T&P Portal.">
   <meta name="author" content="T&P Developers">
   <meta name="keywords"
-    content="Training & Placement Portal, YCCE Nagpur, IIT Wanadongri, Campus Recruitment, Yeshwantrao Chavan College of Engineering">
+    content="Training & Placement Portal,  Nagpur, IIT Wanadongri, Campus Recruitment, Yeshwantrao Chavan College of Engineering">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/favicon/logo.jpg" />
@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   
   <!-- Title Meta tag -->
-  <title>T&P Portal YCCE, Nagpur</title>
+  <title>T&P Portal</title>
 
   <!-- Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -92,11 +92,12 @@
 
 
     <!-- <li><a href="/team" aria-expanded="false">Team</a></li> -->
-    <li><a ng-show="main.isLoggedIn" href=" http://192.168.31.35:8501" target="_blank" aria-expanded="false">Predict
+    <li><a ng-show="main.isLoggedIn" href="http://localhost:1111/" target="_blank" aria-expanded="false">Predict
         now</a></li>
-    <li><a ng-show="main.isLoggedIn  && main.authorized" href="https://tnp-admin.herokuapp.com/" target="_blank"
-        aria-expanded="false">Bulk Predict</a></li>
-    <li><a ng-show="!main.authorized" href="/about" aria-expanded="falCompany Registrationse">About Us</a></li>
+        <li><a ng-show="main.isLoggedIn" href="http://localhost:2222/" target="_blank" aria-expanded="false">Ask AI</a></li>
+    <!-- <li><a ng-show="main.isLoggedIn  && main.authorized" href="https://tnp-admin.herokuapp.com/" target="_blank"
+        aria-expanded="false">Bulk Predict</a></li> -->
+    <li><a  href="/about" aria-expanded="falCompany Registrationse">About Us</a></li>
     <li><a ng-show="!main.authorized" href="/contact" aria-expanded="false">Contact</a></li>
     <!-- <li><a href="/placements" aria-expanded="false">Hall of Fame</a></li> -->
     <li><a href="/notifications" aria-expanded="false" ng-show="main.isLoggedIn  && !main.authorized">All

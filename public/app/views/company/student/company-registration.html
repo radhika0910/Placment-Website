@@ -10,7 +10,8 @@
         <div class="card text-white bg-danger">
             <div class="card-body">
                 <h3 class="card-title">Your profile is blocked!</h3>
-                <p class="card-text">You violated Placement Rule 3 times so, your profile is blocked. Reach Training and placement cell in case of any help.</p>
+                <p class="card-text">You violated Placement Rule 3 times so, your profile is blocked. Reach Training and
+                    placement cell in case of any help.</p>
             </div>
         </div>
     </div>
@@ -64,27 +65,57 @@
 
     <div class="row">
         <!-- Column -->
-        <div class="col-lg-4 col-md-6" ng-repeat="company in companyRegistration.upcomingCompanies | orderBy : 'deadline_date'">
+        <div class="col-lg-4 col-md-6"
+            ng-repeat="company in companyRegistration.upcomingCompanies | orderBy : 'deadline_date'">
             <div class="card cc-widget">
                 <div class="card-body">
                     <div class="d-flex no-block flex-row">
-                        <div class="round align-self-center round-success m-t-10 m-b-10"><i class="ti-briefcase"></i></div>
+                        <div class="round align-self-center round-success m-t-10 m-b-10"><i class="ti-briefcase"></i>
+                        </div>
                         <div class="m-l-10 align-self-center">
-                            <h4 class="m-b-0">{{ company.company_name | limitTo: 18 }}{{company.company_name.length > 18 ? '...' : '' }} <!--<span class="badge badge-pill badge-danger text-white" ng-show="getApplyStatusInCompany(company._id);">Applied</span> <span class="badge badge-pill badge-primary text-white" ng-show="!getApplyStatusInCompany(company._id);">Pending</span>--></h4>
-                            <h5 class="text-muted m-b-0"> {{ company.job_profile | limitTo: 20 }}{{company.job_profile.length > 20 ? '...' : '' }}</h5>
+                            <h4 class="m-b-0">{{ company.company_name | limitTo: 18 }}{{company.company_name.length > 18
+                                ? '...' : '' }}
+                                <!--<span class="badge badge-pill badge-danger text-white" ng-show="getApplyStatusInCompany(company._id);">Applied</span> <span class="badge badge-pill badge-primary text-white" ng-show="!getApplyStatusInCompany(company._id);">Pending</span>-->
+                            </h4>
+                            <h5 class="text-muted m-b-0"> {{ company.job_profile | limitTo: 20
+                                }}{{company.job_profile.length > 20 ? '...' : '' }}</h5>
                         </div>
                     </div>
                     <div class="d-flex no-block flex-row m-t-20 cc-details text-center">
                         <div class="col-lg-6 p-10 p-l-0 border-right">
-                            <h6 class="font-light">Package</h6><b class="growth">₹ {{ company.package | package }}</b></div>
+                            <h6 class="font-light">Package</h6><b class="growth">₹ {{ company.package | package }}</b>
+                        </div>
                         <div class="col-lg-6 p-10">
-                            <h6 class="font-light">Last Date</h6><b class="down">{{ company.deadline_date | date : 'dd MMMM'}}</b>
+                            <h6 class="font-light">Last Date</h6><b class="down">{{ company.deadline_date | date : 'dd
+                                MMMM'}}</b>
                         </div>
                     </div>
                     <br>
 
-                    <div class="text-center">
-                        <a href="/company/{{company._id}}"><button type="button" class="btn btn-info btn-rounded"><span ng-show="!main.authorized">View More</span><span ng-show="main.authorized">Edit Now</span></button></a>
+                    <div class="text-center" ng-show="!main.authorized">
+                        <a href="/company/{{company._id}}">
+                            <button type="button" class="btn btn-info btn-rounded">
+                                View More
+                            </button>
+                        </a>
+                    </div>
+                    <div class="text-center d-flex justify-content-center" style="gap: 20px;" ng-show="main.authorized">
+                        <a href="/company/{{company._id}}">
+                            <button type="button" class="btn btn-info btn-rounded">
+                                <span>Edit Now</span>
+                            </button>
+                        </a>
+                        <a href="/registeredStudents/{{company._id}}">
+                            <button type="button" class="btn btn-info btn-rounded">
+                                <span>Applied</span>
+                            </button>
+                        </a>
+
+                        <a href="/notregisteredStudents/{{company._id}}">
+                            <button type="button" class="btn btn-info btn-rounded">
+                                <span>Not Applied</span>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -106,23 +137,25 @@
 <!-- Link to Previous Company Page -->
 <div class="row mb-2">
     <div class="col-12">
-        <a href="/previous-companies" class="btn btn-block btn-rounded btn-primary"><i class="icon-eye"></i> &nbsp; View Previous Companies</a>
+        <a href="/previous-companies" class="btn btn-block btn-rounded btn-primary"><i class="icon-eye"></i> &nbsp; View
+            Previous Companies</a>
     </div>
 </div>
 
 <!-- Company Calender -->
 
-<center><h2>Upcoming Companies Calender</h2></center>
 <center>
-    <iframe src="https://calendar.google.com/calendar/embed?src=813f5a93d4b027114b145b4da5060f723b223e45d75d8405be0a4fb3b3757ccd%40group.calendar.google.com&ctz=Asia%2FKolkata"
+    <h2>Upcoming Companies Calender</h2>
+</center>
+<center>
+    <iframe
+        src="https://calendar.google.com/calendar/embed?src=813f5a93d4b027114b145b4da5060f723b223e45d75d8405be0a4fb3b3757ccd%40group.calendar.google.com&ctz=Asia%2FKolkata"
         style="border: 0" width="80%" height="700vh" frameborder="0" scrolling="no"></iframe>
 </center>
 
 
 <center>
-    <iframe ng-show="main.isLoggedIn && main.authorized" src="https://docs.google.com/forms/d/e/1FAIpQLScuRbKIoReLxplWYhYgqrFMQnIG2l2eMJxpB-cp5sBNZK4qig/viewform?embedded=true" width="700" height="520" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <iframe ng-show="main.isLoggedIn && main.authorized"
+        src="https://docs.google.com/forms/d/e/1FAIpQLScuRbKIoReLxplWYhYgqrFMQnIG2l2eMJxpB-cp5sBNZK4qig/viewform?embedded=true"
+        width="700" height="520" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 </center>
-
-
-
-

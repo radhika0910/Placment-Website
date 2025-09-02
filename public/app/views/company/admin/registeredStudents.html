@@ -6,10 +6,7 @@
 </div>
 
 <!-- Loading Message -->
-<div
-  class="alert alert-primary alert-rounded"
-  ng-show="registeredStudents.getRegisteredStudentsLoading"
->
+<div class="alert alert-primary alert-rounded" ng-show="registeredStudents.getRegisteredStudentsLoading">
   <strong> Loading!</strong> Hold on. We are fetching registered students...
 </div>
 
@@ -25,33 +22,30 @@
         <!-- Form Input to search a particular Student -->
         <form class="form-material">
           <div class="form-group">
-            <input
-              type="text"
-              class="form-control form-control-line"
-              placeholder="Type here to Search for student name"
-              ng-model="studentName"
-            />
+            <input type="text" class="form-control form-control-line" placeholder="Type here to Search for student name"
+              ng-model="studentName" />
           </div>
         </form>
 
         <!-- Total Registered Students -->
-        <span class="text-purple"
-          >Total {{ registeredStudents.company.registered_candidates.length }}
-          Registered Student(s).</span
-        >
-
+        <span class="text-purple">Total {{ registeredStudents.company.registered_candidates.length }}
+          Registered Student(s).</span>
+        <div class="text-center m-3">
+          <button type="button" class="btn btn-warning btn-rounded" ng-click="exportNotRegisteredStudentsCSV()">
+            Download Not Registered Students
+          </button>
+          <div class="mt-2">
+            <span class="font-weight-bold">Not Registered Students: </span>
+            <span>{{ registeredStudents.unregisteredCount }}</span>
+          </div>
+        </div>
         <!-- Export Resumes & Excel Button -->
-        <div
-          class="row mt-5"
-          ng-show="main.authorized && !registeredStudents.getRegisteredStudentsLoading && registeredStudents.company.registered_candidates.length > 0"
-        >
+        <div class="row mt-5"
+          ng-show="main.authorized && !registeredStudents.getRegisteredStudentsLoading && registeredStudents.company.registered_candidates.length > 0">
           <div class="col-12">
             <!-- Export Resume Button - Only show if Company was added after Resume Upload feature -->
-            <button
-              ng-show="registeredStudents.company.registered_candidates[0].resume_url"
-              class="btn btn-primary mb-1"
-              ng-click="registeredStudents.exportResumesOfRegisteredStudents();"
-            >
+            <button ng-show="registeredStudents.company.registered_candidates[0].resume_url"
+              class="btn btn-primary mb-1" ng-click="registeredStudents.exportResumesOfRegisteredStudents();">
               Export Resumes
             </button>
 
@@ -64,26 +58,15 @@
             /> -->
 
             <!-- Export CSV Sheet Button -->
-            <input
-              type="button"
-              class="btn btn-primary mb-1"
-              value="Export as csv"
-              ng-click="saveAsCSV('demo-foo-addrow', registeredStudents.company.company_name)"
-            />
+            <input type="button" class="btn btn-primary mb-1" value="Export as csv"
+              ng-click="saveAsCSV('demo-foo-addrow', registeredStudents.company.company_name)" />
           </div>
         </div>
 
         <h6 class="card-subtitle"></h6>
-        <div
-          class="table-responsive"
-          ng-if="registeredStudents.company.registered_candidates.length > 0"
-        >
-          <table
-            id="demo-foo-addrow"
-            class="table table-bordered m-t-30 table-hover contact-list"
-            data-paging="true"
-            data-paging-size="7"
-          >
+        <div class="table-responsive" ng-if="registeredStudents.company.registered_candidates.length > 0">
+          <table id="demo-foo-addrow" class="table table-bordered m-t-30 table-hover contact-list" data-paging="true"
+            data-paging-size="7">
             <thead>
               <tr>
                 <th>No</th>
@@ -102,9 +85,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr
-                ng-repeat="student in registeredStudents.company.registered_candidates | filter : studentName"
-              >
+              <tr ng-repeat="student in registeredStudents.company.registered_candidates | filter : studentName">
                 <td>{{ $index + 1}}.</td>
                 <td>
                   <a class="text-primary"> {{ student.student_name }}</a>
@@ -119,10 +100,7 @@
                 <td>{{ student.matric_marks }}</td>
                 <td>{{ student.senior_marks }}</td>
                 <td>
-                  <button
-                    class="btn btn-rounded btn-danger"
-                    ng-click="withdrawRegistration(student.college_id)"
-                  >
+                  <button class="btn btn-rounded btn-danger" ng-click="withdrawRegistration(student.college_id)">
                     <i class="icon-trash"></i>
                   </button>
                 </td>

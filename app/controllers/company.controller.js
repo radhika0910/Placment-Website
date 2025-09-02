@@ -29,6 +29,76 @@ exports.getAll = async (req, res) => {
   }
 };
 
+exports.exportNotRegisteredStudentsCSV = async (req, res) => {
+    try {
+        const companyId = req.params.company_id;
+        const allStudents = await User.find({});
+        const company = await Company.findById(companyId);
+        if (!company) {
+            return res.status(404).json({ success: false, message: 'Company not found.' });
+        }
+        const registeredIds = Array.isArray(company.candidates)
+            ? company.candidates
+            : [];
+        // Convert CGPA and Active Backlogs to string/number
+        const notRegistered = allStudents
+            .filter(s => !registeredIds.includes(s.college_id))
+            .map(s => ({
+                student_name: s.student_name,
+                college_id: s.college_id,
+                degree: s.degree,
+                branch: s.branch,
+                personal_email: s.personal_email,
+                personal_contact_no: s.personal_contact_no,
+                cgpa: s.cgpa && s.cgpa.toString ? s.cgpa.toString() : s.cgpa,
+                active_backlogs: s.active_backlogs && s.active_backlogs.toString ? s.active_backlogs.toString() : s.active_backlogs
+            }));
+ const numberOfNotRegistered = notRegistered.length;
+        const fields = [
+            { label: 'Name', value: 'student_name' },
+            { label: 'College ID', value: 'college_id' },
+            { label: 'Degree', value: 'degree' },
+            { label: 'Branch', value: 'branch' },
+            { label: 'Email', value: 'personal_email' },
+            { label: 'Contact No', value: 'personal_contact_no' },
+            { label: 'CGPA', value: 'cgpa' },
+            { label: 'Active Backlogs', value: 'active_backlogs' }
+        ];
+
+        const { Parser } = require('json2csv');
+        const parser = new Parser({ fields });
+        const csv = parser.parse(notRegistered);
+
+        res.status(200);
+        res.setHeader('Cache-Control', 'no-store');
+        res.setHeader('Pragma', 'no-cache');
+        res.header('Content-Type', 'text/csv');
+        res.attachment('NotRegisteredStudents.csv');
+        return res.send(csv);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: 'Could not export CSV.' });
+    }
+};
+
+exports.getNotRegisteredStudentsCount = async (req, res) => {
+    try {
+        const companyId = req.params.company_id;
+        const allStudents = await User.find({});
+        const company = await Company.findById(companyId);
+        if (!company) {
+            return res.status(404).json({ success: false, message: 'Company not found.' });
+        }
+        const registeredIds = Array.isArray(company.candidates) ? company.candidates : [];
+        const notRegisteredCount = allStudents.filter(s => !registeredIds.includes(s.college_id)).length;
+        res.status(200).json({ success: true, count: notRegisteredCount });
+        console.log("Not Registered Students Count: ", notRegisteredCount);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: 'Could not fetch count.' });
+    }
+};
+
 exports.getOne = (req, res) => {
   const _b = req.params;
 
