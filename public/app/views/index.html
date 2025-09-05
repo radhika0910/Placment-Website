@@ -97,8 +97,10 @@
     <li><a ng-show="main.isLoggedIn" href="http://localhost:2222/" target="_blank" aria-expanded="false">Ask AI</a></li>
     <!-- <li><a ng-show="main.isLoggedIn  && main.authorized" href="https://tnp-admin.herokuapp.com/" target="_blank"
         aria-expanded="false">Bulk Predict</a></li> -->
-    <li><a href="/about" aria-expanded="falCompany Registrationse">About Us</a></li>
+    <li><a href="/about" aria-expanded="false">About Us</a></li>
     <li><a ng-show="!main.authorized" href="/contact" aria-expanded="false">Contact</a></li>
+    <li><a ng-show="!main.authorized" href="/register" aria-expanded="false">Register</a></li>
+
     <!-- <li><a href="/placements" aria-expanded="false">Hall of Fame</a></li> -->
     <li><a href="/notifications" aria-expanded="false" ng-show="main.isLoggedIn  && !main.authorized">All
         Notifications</a></li>

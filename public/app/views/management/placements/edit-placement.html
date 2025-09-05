@@ -7,7 +7,8 @@
     <!-- All Placements Button -->
     <div class="col-md-7 align-self-center text-right">
         <div class="d-flex justify-content-end align-items-center">
-            <a href="/placement-management" type="button" class="btn btn-primary d-none d-lg-block m-l-15"><i class="ti-calendar"></i> &nbsp;Placement Management</a>
+            <a href="/placement-management" type="button" class="btn btn-primary d-none d-lg-block m-l-15"><i
+                    class="ti-calendar"></i> &nbsp;Placement Management</a>
         </div>
     </div>
 </div>
@@ -35,14 +36,16 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Edit {{ editPlacement.placements.students[0].student_name.split(" ")[0] }}'s Placement Details</h4>
+                    <h4 class="card-title">Edit {{ editPlacement.placements.students[0].student_name.split(" ")[0] }}'s
+                        Placement Details</h4>
                     <h6 class="card-subtitle">Enter placement details for placement session</h6>
 
                     <div class="row p-t-20">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Company Name</label>
-                                <input type="text" class="form-control" placeholder="Enter name" ng-model="editPlacement.placements.company_name" required>
+                                <input type="text" class="form-control" placeholder="Enter name"
+                                    ng-model="editPlacement.placements.company_name" required>
                             </div>
                         </div>
                         <!--/span-->
@@ -51,9 +54,9 @@
                                 <label>Passout Batch</label>
                                 <select class="form-control" ng-model="editPlacement.placements.passout_batch" required>
                                     <option value="">-- Select Passout Batch --</option>
-                                    <option value="2021">2021</option>
-                                    <option value="2022">2022</option>
-                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+                                    <option value="2026">2026</option>
                                 </select>
                             </div>
                         </div>
@@ -63,13 +66,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Job Profile</label>
-                                <input type="text" class="form-control" placeholder="Enter Job Profile" ng-model="editPlacement.placements.job_profile" required>
+                                <input type="text" class="form-control" placeholder="Enter Job Profile"
+                                    ng-model="editPlacement.placements.job_profile" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Recruitment Date(when company announced the result)</label>
-                                <input type="date" class="form-control" ng-model="editPlacement.placements.recruitment_date" required>
+                                <input type="date" class="form-control"
+                                    ng-model="editPlacement.placements.recruitment_date" required>
                             </div>
                         </div>
                     </div>
@@ -88,7 +93,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Recruitment Type</label>
-                                <select class="form-control" ng-model="editPlacement.placements.recruitment_type" required>
+                                <select class="form-control" ng-model="editPlacement.placements.recruitment_type"
+                                    required>
                                     <option value="">-- Select Recruitment Type --</option>
                                     <option value="PPO">Pre Placement Offer</option>
                                     <option value="On-Campus">On-Campus</option>
@@ -104,7 +110,8 @@
                             <div class="form-group">
                                 <label class="control-label">Internship Duration</label>
                                 <div class="input-group">
-                                    <input type="number" class="form-control" placeholder="Enter internship duration" ng-model="editPlacement.placements.intern_duration" required>
+                                    <input type="number" class="form-control" placeholder="Enter internship duration"
+                                        ng-model="editPlacement.placements.intern_duration" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">Months</span>
                                     </div>
@@ -116,7 +123,8 @@
                             <div class="form-group">
                                 <label class="control-label">Internship Stipend</label>
                                 <div class="input-group">
-                                    <input type="number" class="form-control" placeholder="Enter internship stipend" ng-model="editPlacement.placements.intern_stipend" required>
+                                    <input type="number" class="form-control" placeholder="Enter internship stipend"
+                                        ng-model="editPlacement.placements.intern_stipend" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">Per Month</span>
                                     </div>
@@ -139,7 +147,8 @@
                             <div class="form-group">
                                 <label class="control-label">Package</label>
                                 <div class="input-group">
-                                    <input type="number" class="form-control" placeholder="Enter package" ng-model="editPlacement.placements.package" step="any" required>
+                                    <input type="number" class="form-control" placeholder="Enter package"
+                                        ng-model="editPlacement.placements.package" step="any" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">Lakhs Per Annum</span>
                                     </div>
@@ -151,7 +160,8 @@
 
                     <div class="form-group">
                         <label class="control-label">Any Comments</label>
-                        <textarea type="text" class="form-control" rows="3" ng-model="editPlacement.placements.comments" placeholder="Any comments..."></textarea>
+                        <textarea type="text" class="form-control" rows="3" ng-model="editPlacement.placements.comments"
+                            placeholder="Any comments..."></textarea>
                     </div>
                 </div>
             </div>
@@ -170,6 +180,7 @@
 
     <!--Submit Buttom-->
     <div style="text-align: center">
-        <button type="submit" class="btn btn-primary btn-rounded"><i class="ti-check-box"></i> &nbsp; Submit Details</button>
+        <button type="submit" class="btn btn-primary btn-rounded"><i class="ti-check-box"></i> &nbsp; Submit
+            Details</button>
     </div>
 </form>

@@ -6,7 +6,8 @@
     <!-- Add Coordinator Model Box -->
     <div class="col-md-7 align-self-center text-right" ng-show="main.authorized">
         <div class="d-flex justify-content-end align-items-center">
-            <button type="button" class="btn btn-primary d-none d-lg-block m-l-15" data-toggle="modal" data-target="#addNewCoordinator"><i class="ti-plus"></i> Add Coordinator</button>
+            <button type="button" class="btn btn-primary d-none d-lg-block m-l-15" data-toggle="modal"
+                data-target="#addNewCoordinator"><i class="ti-plus"></i> Add Coordinator</button>
         </div>
     </div>
 
@@ -19,20 +20,23 @@
                 <form ng-submit="coordinator.addCoordinator(coordinatorData)">
                     <div class="modal-header">
                         <h4 class="modal-title" id="exampleModalLabel1">Add New Coordinator</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
 
                         <!-- Name -->
                         <div class="form-group">
                             <label class="control-label">Name</label>
-                            <input type="text" class="form-control" placeholder="Enter Coordinator Name*" ng-model="coordinator.coordinatorData.name" required>
+                            <input type="text" class="form-control" placeholder="Enter Coordinator Name*"
+                                ng-model="coordinator.coordinatorData.name" required>
                         </div>
 
                         <!-- College Email ID -->
                         <div class="form-group">
                             <label class="control-label">College Email ID</label>
-                            <input type="email" class="form-control" placeholder="Enter College Email ID*" ng-model="coordinator.coordinatorData.college_email" required>
+                            <input type="email" class="form-control" placeholder="Enter College Email ID*"
+                                ng-model="coordinator.coordinatorData.college_email" required>
                         </div>
 
                         <!-- Passout Batch -->
@@ -41,9 +45,9 @@
                             <select class="form-control" ng-model="coordinator.coordinatorData.passout_batch" required>
                                 <option value=""> -- Select Passout Batch -- </option>
                                 <option value="2020"> 2020</option>
-                                <option value="2021"> 2021</option>
-                                <option value="2022"> 2022</option>
-                                <option value="2023"> 2023</option>
+                                <option value="2024"> 2024</option>
+                                <option value="2025"> 2025</option>
+                                <option value="2026"> 2026</option>
                             </select>
                         </div>
 
@@ -60,7 +64,10 @@
                         <!-- Contact No -->
                         <div class="form-group">
                             <label class="control-label">Contact No.</label>
-                            <input type="text" class="form-control" placeholder="Coordinator 10 Digit Contact No. for communication*" ng-model="coordinator.coordinatorData.alternate_contact_no" minlength="10" maxlength="10" required>
+                            <input type="text" class="form-control"
+                                placeholder="Coordinator 10 Digit Contact No. for communication*"
+                                ng-model="coordinator.coordinatorData.alternate_contact_no" minlength="10"
+                                maxlength="10" required>
                         </div>
 
                         <!-- Error Message -->
@@ -85,7 +92,8 @@
             <div class="modal-content" ng-show="coordinator.successMsg">
                 <div class="modal-header">
                     <h4 class="modal-title">Success</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <div class="modal-body">
@@ -124,7 +132,8 @@
                     <h3 ng-show="selectedRole==='spc'">Student Placement Coordinators</h3>
                     <h3 ng-show="selectedRole==='faculty-coordinator'">Faculty Coordinators Coordinators</h3>
 
-                    <h5 class="font-light m-t-0"> Nagpur</h5></div>
+                    <h5 class="font-light m-t-0"> Nagpur</h5>
+                </div>
                 <div class="col-6 align-self-center display-6 text-right">
                     <h2 class="text-success">{{ filteredCoordinators.length }} {{ selectedRole.toUpperCase() }}s</h2>
                 </div>
@@ -133,16 +142,17 @@
         <div class="table-responsive" ng-show="filteredCoordinators.length > 0">
             <table class="table table-hover">
                 <thead>
-                <tr>
-                    <th class="text-center">#</th>
-                    <th>NAME</th>
-                    <th>LOGIN ID</th>
-                    <th>EMAIL</th>
-                    <th>CONTACT NO</th>
-                </tr>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th>NAME</th>
+                        <th>LOGIN ID</th>
+                        <th>EMAIL</th>
+                        <th>CONTACT NO</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="coordinator in filteredCoordinators = (coordinator.ptpCoordinators | filter : { permission : selectedRole })">
+                    <tr
+                        ng-repeat="coordinator in filteredCoordinators = (coordinator.ptpCoordinators | filter : { permission : selectedRole })">
                         <td class="text-center">{{ $index + 1}}</td>
                         <td class="txt-oflo">{{ coordinator.student_name.toUpperCase() }}</td>
                         <td>{{ coordinator.college_id }} </td>

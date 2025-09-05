@@ -34,7 +34,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Company Name</label>
-                                <input type="text" class="form-control" placeholder="Enter name" ng-model="addNewCompany.newCompanyData.company_name">
+                                <input type="text" class="form-control" placeholder="Enter name"
+                                    ng-model="addNewCompany.newCompanyData.company_name">
                             </div>
                         </div>
                         <!--/span-->
@@ -42,7 +43,8 @@
                             <div class="form-group">
                                 <label class="control-label">Company Website Link</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Enter URL" ng-model="addNewCompany.newCompanyData.company_website_url">
+                                    <input type="text" class="form-control" placeholder="Enter URL"
+                                        ng-model="addNewCompany.newCompanyData.company_website_url">
                                 </div>
                                 <small class="form-control-feedback"> *Don't forget to add http:// or https://. </small>
                             </div>
@@ -84,7 +86,9 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label">About Company</label>
-                        <textarea type="text" class="form-control" rows="3" ng-model="addNewCompany.newCompanyData.about_company" placeholder="Something about company..."></textarea>
+                        <textarea type="text" class="form-control" rows="3"
+                            ng-model="addNewCompany.newCompanyData.about_company"
+                            placeholder="Something about company..."></textarea>
                     </div>
                 </div>
             </div>
@@ -101,19 +105,21 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Job Profile</label>
-                                <input type="text" class="form-control" placeholder="Enter job profile" ng-model="addNewCompany.newCompanyData.job_profile" required>
+                                <input type="text" class="form-control" placeholder="Enter job profile"
+                                    ng-model="addNewCompany.newCompanyData.job_profile" required>
                             </div>
                         </div>
                         <!--/span-->
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Passout Batch</label>
-                                <select class="form-control" ng-model="addNewCompany.newCompanyData.passout_batch" required>
+                                <select class="form-control" ng-model="addNewCompany.newCompanyData.passout_batch"
+                                    required>
                                     <option value=""> -- Select Batch --</option>
                                     <option value="2020">2020</option>
-                                    <option value="2021">2021</option>
-                                    <option value="2022">2022</option>
-                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+                                    <option value="2026">2026</option>
                                 </select>
                             </div>
                         </div>
@@ -135,7 +141,8 @@
                         <div class="col-md-6" ng-if="addNewCompany.newCompanyData.recruitment == 'Internship'">
                             <div class="form-group">
                                 <label class="control-label">Duration</label>
-                                <input type="text" class="form-control" placeholder="Enter duration" ng-model="addNewCompany.newCompanyData.duration">
+                                <input type="text" class="form-control" placeholder="Enter duration"
+                                    ng-model="addNewCompany.newCompanyData.duration">
                                 <!--<small class="form-control-feedback"> This field has error. </small>-->
                             </div>
                         </div>
@@ -147,7 +154,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Location of Posting</label>
-                                <input type="text" class="form-control" placeholder="Enter posting location" ng-model="addNewCompany.newCompanyData.posting_location">
+                                <input type="text" class="form-control" placeholder="Enter posting location"
+                                    ng-model="addNewCompany.newCompanyData.posting_location">
                                 <!--<small class="form-control-feedback"> This field has error. </small>-->
                             </div>
                         </div>
@@ -156,7 +164,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Tentative Date of Joining</label>
-                                <input type="date" class="form-control" ng-model="addNewCompany.newCompanyData.joining_date">
+                                <input type="date" class="form-control"
+                                    ng-model="addNewCompany.newCompanyData.joining_date">
                             </div>
                         </div>
                         <!--/span-->
@@ -166,7 +175,9 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label class="control-label">Job Description</label>
-                                <textarea type="text" class="form-control" rows="3" ng-model="addNewCompany.newCompanyData.job_description" placeholder="Write Job Description here..."></textarea>
+                                <textarea type="text" class="form-control" rows="3"
+                                    ng-model="addNewCompany.newCompanyData.job_description"
+                                    placeholder="Write Job Description here..."></textarea>
                             </div>
                         </div>
                     </div>
@@ -188,7 +199,8 @@
                                 <div class="row">
                                     <div class="col-md-2" ng-repeat="program in programs">
                                         <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" value="program" ng-model="programTicked" ng-change="showBranchesDiv(program)">
+                                            <input type="checkbox" class="custom-control-input" value="program"
+                                                ng-model="programTicked" ng-change="showBranchesDiv(program)">
                                             <span class="custom-control-label"><b>{{ program }}</b></span>
                                         </label>
                                     </div>
@@ -203,7 +215,9 @@
                                 <div class="row">
                                     <div class="col-md-6" ng-repeat="branch in programsBranches[program.toLowerCase()]">
                                         <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" name="recruitmentRadio11" value="branch" ng-model="addNewCompany.newCompanyData.eligibility[program][branch]">
+                                            <input type="checkbox" class="custom-control-input"
+                                                name="recruitmentRadio11" value="branch"
+                                                ng-model="addNewCompany.newCompanyData.eligibility[program][branch]">
                                             <span class="custom-control-label">{{ branch }}</span>
                                         </label>
                                     </div>
@@ -216,7 +230,8 @@
                             <div class="form-group">
                                 <label class="control-label">Minimum CGPA</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Enter minimum CGPA" ng-model="addNewCompany.newCompanyData.min_cgpa">
+                                    <input type="text" class="form-control" placeholder="Enter minimum CGPA"
+                                        ng-model="addNewCompany.newCompanyData.min_cgpa">
                                     <div class="input-group-append">
                                         <span class="input-group-text">CGPA</span>
                                     </div>
@@ -229,7 +244,8 @@
                             <div class="form-group">
                                 <label class="control-label">Min. Marks in 10th</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Enter percentage" ng-model="addNewCompany.newCompanyData.min_10_percent">
+                                    <input type="text" class="form-control" placeholder="Enter percentage"
+                                        ng-model="addNewCompany.newCompanyData.min_10_percent">
                                     <div class="input-group-append">
                                         <span class="input-group-text">% Marks in 10th</span>
                                     </div>
@@ -244,7 +260,8 @@
                             <div class="form-group">
                                 <label class="control-label">Min. Marks in 12th</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Enter percentage" ng-model="addNewCompany.newCompanyData.min_12_percent">
+                                    <input type="text" class="form-control" placeholder="Enter percentage"
+                                        ng-model="addNewCompany.newCompanyData.min_12_percent">
                                     <div class="input-group-append">
                                         <span class="input-group-text">% Marks in 12th</span>
                                     </div>
@@ -256,7 +273,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Medical Requirement</label>
-                                <select class="form-control" ng-model="addNewCompany.newCompanyData.medical_requirement">
+                                <select class="form-control"
+                                    ng-model="addNewCompany.newCompanyData.medical_requirement">
                                     <option value=""> -- Select Medical Requirement --</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -280,7 +298,8 @@
                         <div class="col-md-6" ng-if="addNewCompany.newCompanyData.service_agreement == 'Yes'">
                             <div class="form-group">
                                 <label class="control-label">Service Agreement Duration</label>
-                                <input type="text" class="form-control" placeholder="Enter service agreement duration" ng-model="addNewCompany.newCompanyData.service_agreement_duration">
+                                <input type="text" class="form-control" placeholder="Enter service agreement duration"
+                                    ng-model="addNewCompany.newCompanyData.service_agreement_duration">
                                 <small class="form-control-feedback"> *Duration in months. </small>
                             </div>
                         </div>
@@ -288,7 +307,8 @@
 
                     <div class="form-group">
                         <label class="control-label">Other Eligibility</label>
-                        <input type="text" class="form-control" placeholder="Enter other eligibility" ng-model="addNewCompany.newCompanyData.other_eligibility">
+                        <input type="text" class="form-control" placeholder="Enter other eligibility"
+                            ng-model="addNewCompany.newCompanyData.other_eligibility">
                         <!--<small class="form-control-feedback"> This field has error. </small>-->
                     </div>
 
@@ -309,14 +329,16 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label class="control-label">Basic Pay</label>
-                                    <input type="text" class="form-control" placeholder=".... ₹" ng-model="addNewCompany.newCompanyData.package[program].basic_pay">
+                                    <input type="text" class="form-control" placeholder=".... ₹"
+                                        ng-model="addNewCompany.newCompanyData.package[program].basic_pay">
                                 </div>
                             </div>
                             <!--/span-->
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label class="control-label">HRA</label>
-                                    <input type="text" class="form-control" placeholder="...... ₹" ng-model="addNewCompany.newCompanyData.package[program].hra">
+                                    <input type="text" class="form-control" placeholder="...... ₹"
+                                        ng-model="addNewCompany.newCompanyData.package[program].hra">
                                     <!--<small class="form-control-feedback"> This field has error. </small>-->
                                 </div>
                             </div>
@@ -324,14 +346,16 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label class="control-label">Perks & Bonus</label>
-                                    <input type="text" class="form-control" placeholder="...... ₹" ng-model="addNewCompany.newCompanyData.package[program].perks_bonus">
+                                    <input type="text" class="form-control" placeholder="...... ₹"
+                                        ng-model="addNewCompany.newCompanyData.package[program].perks_bonus">
                                 </div>
                             </div>
                             <!--/span-->
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label class="control-label">Gross</label>
-                                    <input type="text" class="form-control" placeholder="...... ₹" ng-model="addNewCompany.newCompanyData.package[program].gross">
+                                    <input type="text" class="form-control" placeholder="...... ₹"
+                                        ng-model="addNewCompany.newCompanyData.package[program].gross">
                                     <!--<small class="form-control-feedback"> This field has error. </small>-->
                                 </div>
                             </div>
@@ -339,14 +363,16 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label class="control-label">Take Home</label>
-                                    <input type="text" class="form-control" placeholder="...... ₹" ng-model="addNewCompany.newCompanyData.package[program].take_home">
+                                    <input type="text" class="form-control" placeholder="...... ₹"
+                                        ng-model="addNewCompany.newCompanyData.package[program].take_home">
                                 </div>
                             </div>
                             <!--/span-->
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label class="control-label">CTC</label>
-                                    <input type="text" class="form-control" placeholder="...... ₹" ng-model="addNewCompany.newCompanyData.package[program].ctc">
+                                    <input type="text" class="form-control" placeholder="...... ₹"
+                                        ng-model="addNewCompany.newCompanyData.package[program].ctc">
                                     <!--<small class="form-control-feedback"> This field has error. </small>-->
                                 </div>
                             </div>
@@ -358,7 +384,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Company Accommodation</label>
-                                <select class="form-control" ng-model="addNewCompany.newCompanyData.company_accommodation">
+                                <select class="form-control"
+                                    ng-model="addNewCompany.newCompanyData.company_accommodation">
                                     <option value=""> -- Select --</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -368,7 +395,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Extra Facility</label>
-                                <input type="text" class="form-control" placeholder="Enter other facility" ng-model="addNewCompany.newCompanyData.other_facility">
+                                <input type="text" class="form-control" placeholder="Enter other facility"
+                                    ng-model="addNewCompany.newCompanyData.other_facility">
                                 <!--<small class="form-control-feedback"> This field has error. </small>-->
                             </div>
                         </div>
@@ -387,14 +415,17 @@
                     <div class="form-group row p-t-20">
                         <label class="col-4 col-form-label">Pre Placement Talk</label>
                         <div class="col-4">
-                            <select class="form-control" ng-model="addNewCompany.newCompanyData.selection_process.pre_placement_talk.ppt">
+                            <select class="form-control"
+                                ng-model="addNewCompany.newCompanyData.selection_process.pre_placement_talk.ppt">
                                 <option value=""> -- Select --</option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>
                         </div>
-                        <div class="col-4" ng-if="addNewCompany.newCompanyData.selection_process.pre_placement_talk.ppt == 'Yes'">
-                            <input type="date" class="form-control" ng-model="addNewCompany.newCompanyData.selection_process.pre_placement_talk.date">
+                        <div class="col-4"
+                            ng-if="addNewCompany.newCompanyData.selection_process.pre_placement_talk.ppt == 'Yes'">
+                            <input type="date" class="form-control"
+                                ng-model="addNewCompany.newCompanyData.selection_process.pre_placement_talk.date">
                         </div>
                     </div>
 
@@ -402,14 +433,17 @@
                     <div class="form-group row">
                         <label class="col-4 col-form-label">Aptitude Test</label>
                         <div class="col-4">
-                            <select class="form-control" ng-model="addNewCompany.newCompanyData.selection_process.aptitude_test.test">
+                            <select class="form-control"
+                                ng-model="addNewCompany.newCompanyData.selection_process.aptitude_test.test">
                                 <option value=""> -- Select --</option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>
                         </div>
-                        <div class="col-4" ng-if="addNewCompany.newCompanyData.selection_process.aptitude_test.test == 'Yes'">
-                            <input type="date" class="form-control" ng-model="addNewCompany.newCompanyData.selection_process.aptitude_test.date">
+                        <div class="col-4"
+                            ng-if="addNewCompany.newCompanyData.selection_process.aptitude_test.test == 'Yes'">
+                            <input type="date" class="form-control"
+                                ng-model="addNewCompany.newCompanyData.selection_process.aptitude_test.date">
                         </div>
                     </div>
 
@@ -417,14 +451,17 @@
                     <div class="form-group row">
                         <label class="col-4 col-form-label">Technical Test</label>
                         <div class="col-4">
-                            <select class="form-control" ng-model="addNewCompany.newCompanyData.selection_process.technical_test.test">
+                            <select class="form-control"
+                                ng-model="addNewCompany.newCompanyData.selection_process.technical_test.test">
                                 <option value=""> -- Select --</option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>
                         </div>
-                        <div class="col-4" ng-if="addNewCompany.newCompanyData.selection_process.technical_test.test == 'Yes'">
-                            <input type="date" class="form-control" ng-model="addNewCompany.newCompanyData.selection_process.technical_test.date">
+                        <div class="col-4"
+                            ng-if="addNewCompany.newCompanyData.selection_process.technical_test.test == 'Yes'">
+                            <input type="date" class="form-control"
+                                ng-model="addNewCompany.newCompanyData.selection_process.technical_test.date">
                         </div>
                     </div>
 
@@ -432,14 +469,17 @@
                     <div class="form-group row">
                         <label class="col-4 col-form-label">Group Discussion</label>
                         <div class="col-4">
-                            <select class="form-control" ng-model="addNewCompany.newCompanyData.selection_process.group_discussion.gd">
+                            <select class="form-control"
+                                ng-model="addNewCompany.newCompanyData.selection_process.group_discussion.gd">
                                 <option value=""> -- Select --</option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>
                         </div>
-                        <div class="col-4" ng-if="addNewCompany.newCompanyData.selection_process.group_discussion.gd == 'Yes'">
-                            <input type="date" class="form-control" ng-model="addNewCompany.newCompanyData.selection_process.group_discussion.date">
+                        <div class="col-4"
+                            ng-if="addNewCompany.newCompanyData.selection_process.group_discussion.gd == 'Yes'">
+                            <input type="date" class="form-control"
+                                ng-model="addNewCompany.newCompanyData.selection_process.group_discussion.date">
                         </div>
                     </div>
 
@@ -447,14 +487,16 @@
                         <label class="col-4 col-form-label">Personal Interview</label>
                         <div class="col-4">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="No. of rounds" ng-model="addNewCompany.newCompanyData.selection_process.personal_interview.rounds">
+                                <input type="text" class="form-control" placeholder="No. of rounds"
+                                    ng-model="addNewCompany.newCompanyData.selection_process.personal_interview.rounds">
                                 <div class="input-group-append">
                                     <span class="input-group-text">Rounds</span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-4">
-                            <input type="date" class="form-control" ng-model="addNewCompany.newCompanyData.selection_process.personal_interview.date">
+                            <input type="date" class="form-control"
+                                ng-model="addNewCompany.newCompanyData.selection_process.personal_interview.date">
                         </div>
                     </div>
 
@@ -475,8 +517,10 @@
                                 <select class="form-control" ng-model="addNewCompany.newCompanyData.final_offer">
                                     <option value=""> -- Select --</option>
                                     <option value="Same Day">Same Day</option>
-                                    <option value="Later, but no further interviews">Later, but no further interviews</option>
-                                    <option value="Later, after next stage of interviews">Later, after next stage of interviews</option>
+                                    <option value="Later, but no further interviews">Later, but no further interviews
+                                    </option>
+                                    <option value="Later, after next stage of interviews">Later, after next stage of
+                                        interviews</option>
                                 </select>
                             </div>
                         </div>
@@ -495,7 +539,8 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label class="m-t-20">Last Date to Apply</label>
-                            <input type="datetime-local" class="form-control" placeholder="Enter date" ng-model="addNewCompany.newCompanyData.deadline_date" required>
+                            <input type="datetime-local" class="form-control" placeholder="Enter date"
+                                ng-model="addNewCompany.newCompanyData.deadline_date" required>
                         </div>
                     </div>
                 </div>
@@ -505,54 +550,58 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                
+
                     <!-- Announcement Form-->
                     <form ng-submit="announcements.postAnnouncement(announcementData)">
-                        
-                            <h4 class="card-title">Announcment Details</h4>
-                            <h6 class="card-subtitle">Enter the message you want to float to students after the addition of the company.</h6>
-        
-                        
-                        
-    
-                            <!-- Category -->
-                            <div class="form-group">
-                                <label class="control-label">Select Category</label>
-                                <select class="form-control" ng-model="announcementData.category" required>
-                                    <option value=""> -- Select Announcement Category -- </option>
-                                    <option value="hiring"> New Company Info</option>
-                                </select>
-                            </div>
-    
-                            <!-- Passout Batch -->
-                            <div class="form-group">
-                                <label class="control-label">Select Passout Batch</label>
-                                <select class="form-control" ng-model="announcementData.passout_batch" required>
-                                    <option value=""> -- Select Batch -- </option>
-                                    <option value="2020">2020 Batch</option>
-                                    <option value="2021">2021 Batch</option>
-                                    <option value="2022">2022 Batch</option>
-                                    <option value="2023">2023 Batch</option>
-                                </select>
-                            </div>
-    
-                            <div class="form-group">
-                                <label class="control-label">Announcement</label>
-                                <textarea type="text" class="form-control" placeholder="Write announcement here..." rows="4" ng-model="announcementData.announcement" required></textarea>
-                            </div>
-    
-                            <!-- Loading Message -->
-                            <div class="alert alert-primary alert-rounded" ng-show="announcements.postingAnnouncementsLoading">
-                                <strong> Loading!</strong> Hold on. posting announcement...
-                            </div>
-    
-                            <!-- Error Message -->
-                            <div class="alert alert-danger alert-rounded" ng-show="announcements.errorMsg">
-                                <strong>Oops! </strong> {{ announcements.errorMsg }}
-                            </div>
-                        
+
+                        <h4 class="card-title">Announcment Details</h4>
+                        <h6 class="card-subtitle">Enter the message you want to float to students after the addition of
+                            the company.</h6>
+
+
+
+
+                        <!-- Category -->
+                        <div class="form-group">
+                            <label class="control-label">Select Category</label>
+                            <select class="form-control" ng-model="announcementData.category" required>
+                                <option value=""> -- Select Announcement Category -- </option>
+                                <option value="hiring"> New Company Info</option>
+                            </select>
+                        </div>
+
+                        <!-- Passout Batch -->
+                        <div class="form-group">
+                            <label class="control-label">Select Passout Batch</label>
+                            <select class="form-control" ng-model="announcementData.passout_batch" required>
+                                <option value=""> -- Select Batch -- </option>
+                                <option value="2020">2020 Batch</option>
+                                <option value="2024">2024 Batch</option>
+                                <option value="2025">2025 Batch</option>
+                                <option value="2026">2026 Batch</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Announcement</label>
+                            <textarea type="text" class="form-control" placeholder="Write announcement here..." rows="4"
+                                ng-model="announcementData.announcement" required></textarea>
+                        </div>
+
+                        <!-- Loading Message -->
+                        <div class="alert alert-primary alert-rounded"
+                            ng-show="announcements.postingAnnouncementsLoading">
+                            <strong> Loading!</strong> Hold on. posting announcement...
+                        </div>
+
+                        <!-- Error Message -->
+                        <div class="alert alert-danger alert-rounded" ng-show="announcements.errorMsg">
+                            <strong>Oops! </strong> {{ announcements.errorMsg }}
+                        </div>
+
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-success" ng-disabled="app.postingAnnouncementsLoading">Post Now</button>
+                            <button type="submit" class="btn btn-success"
+                                ng-disabled="app.postingAnnouncementsLoading">Post Now</button>
                         </div>
                     </form>
                 </div>
@@ -560,7 +609,8 @@
                 <div class="modal-content" ng-show="announcements.successMsg">
                     <div class="modal-header">
                         <h4 class="modal-title">New Announcement </h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
                         <div class="modal-body">
@@ -574,16 +624,17 @@
             </div>
         </div>
     </div>
-       
 
 
 
-        
+
+
     </div>
 
     <p class="text-danger text-center" ng-show="addNewCompany.errorMsg"> {{ addNewCompany.errorMsg }}</p>
     <!--Submit Buttom-->
     <div style="text-align: center">
-        <button type="submit" class="btn btn-primary btn-rounded"><i class="ti-check-box"></i> &nbsp; Submit Details</button>
+        <button type="submit" class="btn btn-primary btn-rounded"><i class="ti-check-box"></i> &nbsp; Submit
+            Details</button>
     </div>
 </form>

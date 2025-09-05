@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2023 Munsif Mujtaba (https://codepen.io/__e8e0f2257b/pen/NxMpGq)
+Copyright (c) 2026 Munsif Mujtaba (https://codepen.io/__e8e0f2257b/pen/NxMpGq)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
