@@ -252,6 +252,14 @@ angular
           });
       };
 
+      admin.getNotRegisteredStudentsCount($routeParams.company_id)
+    .then(function(data) {
+        if (data.data.success) {
+            app.unregisteredCount = data.data.count;
+            console.log("Unregistered Students Count: ", app.unregisteredCount);
+        }
+    });
+
       // Export Not Registered Students to Excel
       $scope.exportNotRegisteredStudentsExcel = function () {
         admin

@@ -16,7 +16,7 @@ router.get(
   authMiddleware.ensureLoggedIn,
   companyController.getOne
 );
-// router.get('/notRegisteredCount/:company_id', companyController.getNotRegisteredStudentsCount);
+router.get('/notRegisteredCount/:company_id', companyController.getNotRegisteredStudentsCount);
 router.post(
   "/add",
   jwtMiddleware.verify,

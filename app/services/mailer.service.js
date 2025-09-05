@@ -6,8 +6,8 @@ const templateService = require("../services/template.service");
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "kkmkittu36@gmail.com",
-    pass: "bnbjnjstvzughktd",
+    user: "radhikabhoyarbusiness@gmail.com",
+    pass: "nbxvnbsixuufxkfp",
   },
 });
 
@@ -30,23 +30,29 @@ async function sendDM(user, mailType) {
 async function sendDMWithSubject(user, mailType, subject, content) {
   try {
     console.log("Calling Mailer service with payload ", JSON.stringify(user));
-    console.log(user);
-    // user = JSON.stringify(user);
     const email = user.email;
     console.log("email--->", email);
-    const trimmedEmail = email.split("@")[0];
 
-    console.log(trimmedEmail);
+    // Try to find user by college_email or alternate_email
+    let userDoc = await Student.findOne({
+      $or: [
+        { college_email: email },
+        { alternate_email: email }
+      ]
+    }).select("student_name");
 
-    const userName = await Student.findOne({ college_id: trimmedEmail }).select(
-      "student_name"
-    );
+    let nameToUse = "Student";
+    if (userDoc && userDoc.student_name) {
+      nameToUse = userDoc.student_name;
+    }
+
     const emailData = {
       recipient: user.email,
-      name: userName.student_name,
+      name: nameToUse,
       subject: subject,
       content: content,
     };
+
     console.log("user-->data", emailData);
     const opts = templateService.getEmailOpts(emailData, mailType);
     const data = await transporter.sendMail(opts);

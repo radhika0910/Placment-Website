@@ -1,6 +1,6 @@
 // Constant Data - Being used all over the backend!
 module.exports = {
-    emailSuffix     	: 'ycce.in',
+    emailSuffix     	: 'GHRCE.in',
     programs            : ['UG','M.Tech'],
     placementTeamRoles  : ['spc', 'faculty-coordinator'],
     coordinatorData     : {

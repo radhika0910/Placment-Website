@@ -1,10 +1,10 @@
 # T&P Portal
 
-> Online Training and Placement web portal for YCCE, Nagpur students using MongoDb, Express.js, AngularJs and Node.js (MEAN)
+> Online Training and Placement web portal for GHRCE, Nagpur students using MongoDb, Express.js, AngularJs and Node.js (MEAN)
 
 ## Aim
 
-The aim for doing this project was to make recruitment process in online mode and smoother for students and make the complete placement process paperless at YCCE, Nagpur.
+The aim for doing this project was to make recruitment process in online mode and smoother for students and make the complete placement process paperless at GHRCE, Nagpur.
 
 ## Objective
 

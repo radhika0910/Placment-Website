@@ -1,7 +1,7 @@
 const from = "kkmkittu36@gmail.com";
 const baseUrl = "https://tpncg-portal.onrender.com";
 const email_signature =
-  "<br><br>With Regards.<br><br>Dr. Gauri Dhopavkar<br>Dean, Training & Placement<br>Nagpur<br>+911234567890";
+  "<br><br>With Regards.<br><br>Tejas Kumbhare<br>Training & Placement <br>Nagpur<br>+911234567890";
 
 exports.getEmailOpts = (data, mailType) => {
   switch (mailType) {
@@ -13,7 +13,7 @@ exports.getEmailOpts = (data, mailType) => {
         text:
           "Hello " +
           data.student_name +
-          "We have received a login request for your account.Please find the below OTP to proceed further With Regards, Dr. Gauri Dhopavkar",
+          "We have received a login request for your account.Please find the below OTP to proceed further With Regards, Tejas Kumbhare",
         html:
           "Hello <strong>" +
           data.student_name +
@@ -26,7 +26,7 @@ exports.getEmailOpts = (data, mailType) => {
     case "forgotPassword":
       return {
         from: from,
-        to: data.college_id + "@ycce.in",
+        to: data.college_id + "@GHRCE.in",
         subject: "Reset Password Request : Placement Cell,  Nagpur",
         text:
           "Hello " +
@@ -47,7 +47,7 @@ exports.getEmailOpts = (data, mailType) => {
     case "passwordUpdated":
       return {
         from: from,
-        to: data.college_id + "@ycce.in",
+        to: data.college_id + "@GHRCE.in",
         subject: "Password Updated : T&P Cell,  Nagpur",
         text:
           "Hello " +
@@ -64,12 +64,12 @@ exports.getEmailOpts = (data, mailType) => {
     case "approveInterviewExperience":
       return {
         from: from,
-        to: data.author_id + "@ycce.in",
+        to: data.author_id + "@GHRCE.in",
         subject: "Yay! We have published your article " + data.title,
         text:
           "Hello " +
           data.author_name +
-          "Thanks for sharing your interview process and thoughts with us With Regards, Dr. Gauri Dhopavkar",
+          "Thanks for sharing your interview process and thoughts with us With Regards, Tejas Kumbhare",
         html:
           "Hello <strong>" +
           data.author_name +
@@ -198,7 +198,7 @@ exports.getEmailOpts = (data, mailType) => {
               </div>
               <div class="notification-footer">
                 <p>Regards,</p>
-                <p>Dr. Gauri Dhopavkar</p>
+                <p>Tejas Kumbhare</p>
                 <p>Dean, Training & Placement</p>
                 <p> Nagpur</p>
               </div>

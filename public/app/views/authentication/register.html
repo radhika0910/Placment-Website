@@ -1,6 +1,6 @@
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
-        <h4 class="text-themecolor">T&P Portal YCCE, Nagpur</h4>
+        <h4 class="text-themecolor">T&P Portal GHRCE, Nagpur</h4>
     </div>
 </div>
 <!-- ============================================================== -->
@@ -10,20 +10,23 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body" ng-controller="profileCtrl as profileCtrl">
-                <h4 class="card-title">T&P Portal YCCE, Nagpur Student Registration</h4>
+                <h4 class="card-title">T&P Portal GHRCE, Nagpur Student Registration</h4>
                 <h6 class="card-subtitle">Register yourself for the placement session</h6>
                 <form class="form-material m-t-40" ng-submit="profileCtrl.registerUser(profileCtrl.userData)">
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control form-control-line" placeholder="Enter your name" ng-model="profileCtrl.userData.student_name" required>
+                        <input type="text" class="form-control form-control-line" placeholder="Enter your name"
+                            ng-model="profileCtrl.userData.student_name" required>
                     </div>
                     <div class="form-group">
                         <label>College ID</label>
-                        <input type="text" class="form-control form-control-line" placeholder="Enter your college ID" ng-model="profileCtrl.userData.college_id" required>
+                        <input type="text" class="form-control form-control-line" placeholder="Enter your college ID"
+                            ng-model="profileCtrl.userData.college_id" required>
                     </div>
                     <div class="form-group">
                         <label>Degree</label>
-                        <input type="text" class="form-control form-control-line" placeholder="Enter your degree" ng-model="profileCtrl.userData.degree" required>
+                        <input type="text" class="form-control form-control-line" placeholder="Enter your degree"
+                            ng-model="profileCtrl.userData.degree" required>
                     </div>
                     <div class="form-group">
                         <label>Branch</label>
@@ -46,23 +49,30 @@
                     </div> -->
                     <div class="form-group">
                         <label>CGPA</label>
-                        <input type="number" class="form-control form-control-line" placeholder="Enter your CGPA" ng-model="profileCtrl.userData.cgpa" required>
+                        <input type="number" class="form-control form-control-line" placeholder="Enter your CGPA"
+                            ng-model="profileCtrl.userData.cgpa" required>
                     </div>
                     <div class="form-group">
                         <label>Contact No.</label>
-                        <input type="text" class="form-control form-control-line" placeholder="Enter your contact no." ng-model="profileCtrl.userData.contact_no" required>
+                        <input type="text" class="form-control form-control-line" placeholder="Enter your contact no."
+                            ng-model="profileCtrl.userData.contact_no" required>
                     </div>
                     <div class="form-group">
                         <label>College Email</label>
-                        <input type="email" class="form-control form-control-line" placeholder="Enter your college email" ng-model="profileCtrl.userData.college_email" required>
+                        <input type="email" class="form-control form-control-line"
+                            placeholder="Enter your college email" ng-model="profileCtrl.userData.college_email"
+                            required>
                     </div>
                     <div class="form-group">
                         <label>Active Backlogs</label>
-                        <input type="number" class="form-control form-control-line" placeholder="Enter your active backlogs" ng-model="profileCtrl.userData.active_backlogs" required>
+                        <input type="number" class="form-control form-control-line"
+                            placeholder="Enter your active backlogs" ng-model="profileCtrl.userData.active_backlogs"
+                            required>
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control form-control-line" placeholder="Enter your password" ng-model="profileCtrl.userData.password" required>
+                        <input type="password" class="form-control form-control-line" placeholder="Enter your password"
+                            ng-model="profileCtrl.userData.password" required>
                     </div>
                     <button type="submit" class="btn btn-success btn-rounded">Register</button>
                     <div class="alert alert-success alert-rounded" ng-show="profileCtrl.successMsg">

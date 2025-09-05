@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use("/api/auth/", require("./app/routes/auth.router"));
 app.use("/api/user", require("./app/routes/user.router"));
 app.use("/api/announcement", require("./app/routes/announcement.router"));
-app.use("/api/filter", require("./app/routes/studentFilter.router"));
+app.use("/api/filter", require("./app/routes/studentFilter.router")); 
 app.use("/api/send-bulk-email", require("./app/routes/sendBulkMail.router"));
 app.use("/api/apply", require("./app/routes/apply.router"));
 app.use("/api/attendance", require("./app/routes/attendance.router"));

@@ -15,16 +15,20 @@
                     <h4 class="card-title m-t-10">{{ main.student_name }}</h4>
                     <h6 class="card-subtitle">{{ main.department }}</h6>
                     <div class="row text-center">
-                        <div class="col-12"><a href="#" class="link"><i class="ti-location-pin"></i> <font class="font-medium"> Nagpur</font></a></div>
+                        <div class="col-12"><a href="#" class="link"><i class="ti-location-pin"></i>
+                                <font class="font-medium"> Nagpur</font>
+                            </a></div>
                     </div>
                 </center>
             </div>
             <div>
-                <hr> </div>
+                <hr>
+            </div>
             <div class="card-body">
                 <center>
                     <h6>{{ redFlagHistory.redFlags}} Red Flags</h6>
-                    <div ng-repeat="x in [].constructor(redFlagHistory.redFlags) track by $index" style="display: inline">
+                    <div ng-repeat="x in [].constructor(redFlagHistory.redFlags) track by $index"
+                        style="display: inline">
                         <td><span class="badge badge-danger badge-pill">&nbsp;</span></td>
                     </div>
                     <!--<div ng-repeat="x in [].constructor(redFlagHistory.redFlags) track by $index" style="display: inline">
@@ -44,7 +48,8 @@
         <div class="card">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs profile-tab" role="tablist">
-                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#" role="tab">Red Flag History</a> </li>
+                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#" role="tab">Red Flag
+                        History</a> </li>
             </ul>
             <!-- Tab panes -->
             <div class="tab-content">
@@ -54,12 +59,18 @@
                         <div class="profiletimeline" ng-repeat="redFlag in redFlagHistory.redFlagHistory">
                             <div class="sl-item">
                                 <div class="sl-left">
-                                    <img src="https://res.cloudinary.com/placements-ycce/image/upload/v1593682008/timeline/timeline_j8jzub.png" alt="Timeline Icon" class="img-circle" />
+                                    <img src="https://res.cloudinary.com/placements-GHRCE/image/upload/v1593682008/timeline/timeline_j8jzub.png"
+                                        alt="Timeline Icon" class="img-circle" />
                                 </div>
                                 <div class="sl-right">
-                                    <div><a href="javascript:void(0)" class="link">{{ redFlag.redFlag }} red flag for <b>{{ redFlag.reason }}</b></a><!-- <span class="sl-date"> {{registration.timestamp | date : 'dd MMMM yyyy'}}</span>-->
+                                    <div><a href="javascript:void(0)" class="link">{{ redFlag.redFlag }} red flag for
+                                            <b>{{ redFlag.reason
+                                                }}</b></a><!-- <span class="sl-date"> {{registration.timestamp | date : 'dd MMMM yyyy'}}</span>-->
                                         <div class="row">
-                                            <div class="col-lg-6"><p class="m-t-10"> <b>Date :</b> {{redFlag.timestamp | date : 'dd MMMM yyyy'}}</p></div>
+                                            <div class="col-lg-6">
+                                                <p class="m-t-10"> <b>Date :</b> {{redFlag.timestamp | date : 'dd MMMM
+                                                    yyyy'}}</p>
+                                            </div>
                                             <div class="col-lg-6">
                                                 <p class="m-t-10">
                                                     <b>Status :</b>
@@ -99,7 +110,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="redFlagPolicyModalHeader">Red Flag Policy!</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
             </div>
 
             <div class="modal-body">
@@ -107,7 +119,7 @@
                     red flag rules
                     <br>
                     <br>
-                   
+
                 </span>
             </div>
 

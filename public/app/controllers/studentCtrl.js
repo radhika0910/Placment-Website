@@ -386,7 +386,7 @@ angular
       csvContent += headers.join(",") + "\r\n";
       $scope.students.forEach(function (student) {
         let row = [];
-        row.push(student.college_id + "@ycce.in");
+        row.push(student.college_id + "@GHRCE.in");
         row.push(student.student_name);
         row.push(student.department);
         row.push(student.passout_batch);

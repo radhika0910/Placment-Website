@@ -58,7 +58,7 @@ exports.exportNotRegisteredStudentsCSV = async (req, res) => {
             { label: 'Name', value: 'student_name' },
             { label: 'College ID', value: 'college_id' },
             { label: 'Degree', value: 'degree' },
-            { label: 'Branch', value: 'branch' },
+            { label: 'Branch', value: 'department' },
             { label: 'Email', value: 'personal_email' },
             { label: 'Contact No', value: 'personal_contact_no' },
             { label: 'CGPA', value: 'cgpa' },
@@ -92,7 +92,6 @@ exports.getNotRegisteredStudentsCount = async (req, res) => {
         const registeredIds = Array.isArray(company.candidates) ? company.candidates : [];
         const notRegisteredCount = allStudents.filter(s => !registeredIds.includes(s.college_id)).length;
         res.status(200).json({ success: true, count: notRegisteredCount });
-        console.log("Not Registered Students Count: ", notRegisteredCount);
     } catch (err) {
         console.error(err);
         res.status(500).json({ success: false, message: 'Could not fetch count.' });
@@ -132,15 +131,15 @@ exports.add = (req, res) => {
       // eligibility
       for (let course in _b.eligibility) {
         if (course == "UG") {
-          email.push(batch - 4 + "@ycce.in");
+          email.push(batch - 4 + "@GHRCE.in");
         } else if (course == "MTech") {
-          email.push(batch - 2 + "@ycce.in");
+          email.push(batch - 2 + "@GHRCE.in");
         } else if (course == "MPlan") {
-          email.push(batch - 2 + "_PAR@ycce.in");
+          email.push(batch - 2 + "_PAR@GHRCE.in");
         } else if (course == "MSc") {
-          email.push(batch - 2 + "_MSC@ycce.in");
+          email.push(batch - 2 + "_MSC@GHRCE.in");
         } else if (course == "MBA") {
-          email.push(batch - 2 + "_PBM@ycce.in");
+          email.push(batch - 2 + "_PBM@GHRCE.in");
         }
       }
 

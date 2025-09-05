@@ -34,7 +34,7 @@
           <button type="button" class="btn btn-warning btn-rounded" ng-click="exportNotRegisteredStudentsCSV()">
             Download Not Registered Students
           </button>
-          <div class="mt-2">
+          <div class="mt-2" ng-show="!registeredStudents.getRegisteredStudentsLoading">
             <span class="font-weight-bold">Not Registered Students: </span>
             <span>{{ registeredStudents.unregisteredCount }}</span>
           </div>
