@@ -397,6 +397,7 @@ angular
         row.push(student.placement_status);
         row.push(student.contact_no);
         row.push(student.resume_url);
+        row.push(student.profilePic_url);
         csvContent += row.join(",") + "\r\n";
       });
       let encodedUri = encodeURI(csvContent);
@@ -456,7 +457,7 @@ angular
   })
 
   // User Profile Controller
-  .controller("profileCtrl", function (student, $timeout, $scope, uploadFile) {
+  .controller("profileCtrl", function (student, $timeout, $scope, uploadFile, uploadProfilePic) {
     let app = this;
 
     // Success - Error Messages
@@ -517,7 +518,9 @@ app.registerUser = function (userData) {
     app.resumeUploadLoading = false;
     app.resumeUploadErrorMsg = "";
     app.resumeUploadSuccessMsg = "";
-
+app.profilePicUploadLoading = false;
+app.profilePicUploadErrorMsg = "";
+app.profilePicUploadSuccessMsg = "";
     // Upload Student Resume
     app.updateStudentResume = function () {
       // Loading & Error Msg
@@ -538,6 +541,22 @@ app.registerUser = function (userData) {
         }
       });
     };
+
+    app.updateStudentProfilePic = function () {
+   app.profilePicUploadLoading = true;
+   app.profilePicUploadErrorMsg = "";
+
+   uploadProfilePic.uploadStudentProfilePic($scope.file).then(function (data) {
+     if (data.data.success) {
+       app.profilePicUploadSuccessMsg = data.data.message;
+       app.profilePicUploadLoading = false;
+       getUserProfileFunction();
+     } else {
+       app.profilePicUploadErrorMsg = data.data.message;
+       app.profilePicUploadLoading = false;
+     }
+   });
+};
   })
   // User timeline controller
   .controller("timelineCtrl", function (student) {

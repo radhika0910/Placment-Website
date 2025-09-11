@@ -272,11 +272,11 @@ exports.profile = (req, res) => {
 exports.updateProfile = (req, res) => {
 
     const _b = req.body;
-    const userDataFields = ["cgpa","matric_marks","matric_board","senior_marks","senior_board","alternate_contact_no","address","city","post_code","state","country","placement_status","company1","company2","company3","company4","linkedln_link","resume_url"];
+    const userDataFields = ["cgpa","matric_marks","matric_board","senior_marks","senior_board","alternate_contact_no","address","city","post_code","state","country","placement_status","company1","company2","company3","company4","linkedln_link","resume_url","profilePic_url"];
 
     User
         .findOne({ college_id : req.decoded.college_id })
-        .select('matric_marks matric_board senior_marks senior_board alternate_contact_no address city state post_code country placement_status company1 company2 company3 company4 linkedln_link resume_url')
+        .select('matric_marks matric_board senior_marks senior_board alternate_contact_no address city state post_code country placement_status company1 company2 company3 company4 linkedln_link resume_url profilePic_url')
         .then(user=> {
             userDataFields.forEach(field => {
                 if(_b[field]) user[field] = _b[field];

@@ -128,6 +128,9 @@ var userSchema = new mongoose.Schema({
   resume_url: {
     type: String,
   },
+  profilePic_url: {
+    type: String,
+  },
   password: {
     type: String,
     //select : false

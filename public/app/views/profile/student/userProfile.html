@@ -17,7 +17,10 @@
             <div class="card-body">
                 <center class="m-t-30">
                     <div class="profile-pic">
-                        <img src="assets/images/profile/{{ profile.userProfile.gender }}.png" class="img-circle" width="150" />
+                        <img ng-src="{{ profile.userProfile.profilePic_url 
+                  ? '/assets/uploads/profilepics/' + profile.userProfile.profilePic_url 
+                  : 'assets/images/profile/' + profile.userProfile.gender + '.png' }}" class="img-circle"
+                            width="150" />
                         <!--<div class="edit">
                             <a href="#">
                                 <button type="button" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#editProfilePicture"><i class="ti-pencil"></i> </button>
@@ -27,12 +30,15 @@
                     <h4 class="card-title m-t-10">{{ profile.userProfile.student_name }}</h4>
                     <h6 class="card-subtitle">{{ profile.userProfile.department }}</h6>
                     <div class="row text-center">
-                        <div class="col-12"><a href="#" class="link"><i class="ti-crown"></i> <font class="font-medium">{{ profile.userProfile.passout_batch }} Batch</font></a></div>
+                        <div class="col-12"><a href="#" class="link"><i class="ti-crown"></i>
+                                <font class="font-medium">{{ profile.userProfile.passout_batch }} Batch</font>
+                            </a></div>
                     </div>
                 </center>
             </div>
             <div>
-                <hr> </div>
+                <hr>
+            </div>
             <div class="card-body">
                 <small class="text-muted">Email address </small>
                 <h6>{{ profile.userProfile.college_email }}</h6>
@@ -51,7 +57,8 @@
             <div class="card-body">
                 <div class="d-flex no-block align-items-center">
                     <div class="ml-auto">
-                        <button class="float-right btn btn-circle btn-primary" data-toggle="modal" data-target="#myResumeUploadModal">
+                        <button class="float-right btn btn-circle btn-primary" data-toggle="modal"
+                            data-target="#myResumeUploadModal">
                             <i class="ti-pencil" ng-if="profile.userProfile.resume_url"></i>
                             <i class="ti-upload" ng-if="!profile.userProfile.resume_url"></i>
                         </button>
@@ -66,8 +73,13 @@
                     </span>
                     <span>
                         <h3 class="card-title">We've your resume! </h3>
- <h6 class="card-subtitle">Now, you are all set for Placement session.<a target="_blank" href="/assets/uploads/resumes/{{ profile.userProfile.resume_url }}"> <img src="https://cdn.pixabay.com/photo/2016/12/18/13/45/download-1915753_960_720.png" alt="download" style="height: 40px; width: 40px;"></a></h6>
-                        <h5 class="card-subtitle">Refer this Resume Templates <a href="https://novoresume.com/editor/resume/c22253b0-f3c1-11ec-8635-f119f480f4f1" target="_blank">Click here...</a></h5>
+                        <h6 class="card-subtitle">Now, you are all set for Placement session.<a target="_blank"
+                                href="/assets/uploads/resumes/{{ profile.userProfile.resume_url }}"> <img
+                                    src="https://cdn.pixabay.com/photo/2016/12/18/13/45/download-1915753_960_720.png"
+                                    alt="download" style="height: 40px; width: 40px;"></a></h6>
+                        <h5 class="card-subtitle">Refer this Resume Templates <a
+                                href="https://novoresume.com/editor/resume/c22253b0-f3c1-11ec-8635-f119f480f4f1"
+                                target="_blank">Click here...</a></h5>
                     </span>
                 </li>
 
@@ -85,7 +97,8 @@
 
             <!-- Resume Upload Modal -->
             <!-- .modal for add task -->
-            <div class="modal fade" id="myResumeUploadModal" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal fade" id="myResumeUploadModal" data-backdrop="static" tabindex="-1" role="dialog"
+                aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -93,7 +106,8 @@
                             <h4 class="modal-title" ng-if="!profile.userProfile.resume_url">Upload Resume</h4>
                             <h4 class="modal-title" ng-if="profile.userProfile.resume_url">Edit Resume</h4>
 
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+                                    aria-hidden="true">×</span> </button>
                         </div>
 
                         <!-- Resume Upload Success Message Modal Body -->
@@ -111,7 +125,9 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label>Select Resume</label>
-                                    <input class="form-control" type="file" file-model="file.resume" accept="application/pdf" name="resume" ng-disabled="profile.resumeUploadLoading" required>
+                                    <input class="form-control" type="file" file-model="file.resume"
+                                        accept="application/pdf" name="resume" ng-disabled="profile.resumeUploadLoading"
+                                        required>
                                     <span class="ml-3 text-primary">*only pdf files</span>
                                 </div>
 
@@ -127,7 +143,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" ng-disabled="profile.resumeUploadLoading" class="btn btn-success">Upload Now</button>
+                                <button type="submit" ng-disabled="profile.resumeUploadLoading"
+                                    class="btn btn-success">Upload Now</button>
                             </div>
                         </form>
                     </div>
@@ -139,10 +156,111 @@
         </div>
 
 
+        <!-- 4444444444444555555555555555555234555552222222222222222222222222222222222244444444444444444 -->
+
+        <div class="card" ng-show="!main.authorized">
+            <!-- Profile Pic Upload Button -->
+            <div class="card-body">
+                <div class="d-flex no-block align-items-center">
+                    <div class="ml-auto">
+                        <button class="float-right btn btn-circle btn-primary" data-toggle="modal"
+                            data-target="#myProfilePicUploadModal">
+                            <i class="ti-pencil" ng-if="profile.userProfile.profile_pic_url"></i>
+                            <i class="ti-upload" ng-if="!profile.userProfile.profile_pic_url"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="product-review text-center">
+                <!-- Profile Pic Uploaded -->
+                <li ng-if="profile.userProfile.profile_pic_url">
+                    <span>
+                        <img ng-src="/assets/uploads/profilePics/{{ profile.userProfile.profile_pic_url }}"
+                            alt="Profile Picture" class="rounded-circle"
+                            style="width:120px; height:120px; object-fit:cover; border:2px solid #007bff;">
+                    </span>
+                    <h3 class="card-title mt-3">Looking great!</h3>
+                    <h6 class="card-subtitle">Your profile picture is set.</h6>
+                </li>
+
+                <!-- Profile Pic Not Uploaded -->
+                <li ng-if="!profile.userProfile.profile_pic_url">
+                    <font class="text-muted display-5">
+                        <i class="mdi mdi-account-alert text-danger"></i>
+                    </font>
+                    <span>
+                        <h3 class="card-title">Upload your profile picture now.</h3>
+                        <h6 class="card-subtitle">Please Keep it formal.</h6>
+                    </span>
+                </li>
+            </ul>
+
+            <!-- Profile Pic Upload Modal -->
+            <div class="modal fade" id="myProfilePicUploadModal" data-backdrop="static" tabindex="-1" role="dialog"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" ng-if="!profile.userProfile.profile_pic_url">Upload Profile Picture
+                            </h4>
+                            <h4 class="modal-title" ng-if="profile.userProfile.profile_pic_url">Edit Profile Picture
+                            </h4>
+
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+
+                        <!-- Success Message -->
+                        <div class="modal-body" ng-show="profile.profilePicUploadSuccessMsg">
+                            <div class="alert alert-success alert-rounded">
+                                <i class="ti-face-smile"></i>
+                                <strong> Yay!</strong> {{ profile.profilePicUploadSuccessMsg }}
+                            </div>
+                            <span class="ml-3 text-primary">*Refresh page to see updated profile picture</span>
+                        </div>
+
+                        <!-- Upload Form -->
+                        <form ng-submit="profile.updateStudentProfilePic();"
+                            ng-show="!profile.profilePicUploadSuccessMsg">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label>Select Profile Picture</label>
+                                    <input class="form-control" type="file" file-model="file.profilePic"
+                                        accept="image/png, image/jpeg" name="profilePic"
+                                        ng-disabled="profile.profilePicUploadLoading" required>
+                                    <span class="ml-3 text-primary">*only JPG or PNG files</span>
+                                </div>
+
+                                <!-- Loading Message -->
+                                <div class="alert alert-primary alert-rounded"
+                                    ng-show="profile.profilePicUploadLoading">
+                                    <strong> Loading!</strong> Uploading your profile picture...
+                                </div>
+
+                                <!-- Error Message -->
+                                <div class="alert alert-danger alert-rounded"
+                                    ng-show="profile.profilePicUploadErrorMsg">
+                                    <i class="ti-face-sad"></i>
+                                    <strong>Oops! </strong> {{ profile.profilePicUploadErrorMsg }}
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" ng-disabled="profile.profilePicUploadLoading"
+                                    class="btn btn-success">Upload Now</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 4444444444444555555555555555555234555552222222222222222222222222222222222244444444444444444 -->
         <div class="card">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs profile-tab" role="tablist">
-                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#" role="tab">Profile Details</a> </li>
+                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#" role="tab">Profile
+                        Details</a> </li>
             </ul>
             <!-- Tab panes -->
             <div class="tab-content">
@@ -154,7 +272,9 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Name<span class="text-danger">*</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter your name" class="form-control form-control-line" value="{{ profile.userProfile.student_name }}" disabled>
+                                            <input type="text" placeholder="Enter your name"
+                                                class="form-control form-control-line"
+                                                value="{{ profile.userProfile.student_name }}" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -162,7 +282,9 @@
                                     <div class="form-group">
                                         <label class="col-md-12">College ID<span class="text-danger">*</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter your college ID" class="form-control form-control-line" value="{{ profile.userProfile.college_id }}" disabled>
+                                            <input type="text" placeholder="Enter your college ID"
+                                                class="form-control form-control-line"
+                                                value="{{ profile.userProfile.college_id }}" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -173,7 +295,9 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Degree<span class="text-danger">*</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter your degree" class="form-control form-control-line" value="{{ profile.userProfile.degree }}" disabled>
+                                            <input type="text" placeholder="Enter your degree"
+                                                class="form-control form-control-line"
+                                                value="{{ profile.userProfile.degree }}" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -181,7 +305,9 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Branch<span class="text-danger">*</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter your branch" class="form-control form-control-line" value="{{ profile.userProfile.department }}" disabled>
+                                            <input type="text" placeholder="Enter your branch"
+                                                class="form-control form-control-line"
+                                                value="{{ profile.userProfile.department }}" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -190,17 +316,23 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label class="col-md-12">Personal Email<span class="text-danger">*</span></label>
+                                        <label class="col-md-12">Personal Email<span
+                                                class="text-danger">*</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter your personal email" class="form-control form-control-line" value="{{ profile.userProfile.alternate_email }}" disabled>
+                                            <input type="text" placeholder="Enter your personal email"
+                                                class="form-control form-control-line"
+                                                value="{{ profile.userProfile.alternate_email }}" disabled>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label class="col-md-12">Personal Contact No.<span class="text-danger">*</span></label>
+                                        <label class="col-md-12">Personal Contact No.<span
+                                                class="text-danger">*</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter your personal contact no." class="form-control form-control-line" value="+91 {{profile.userProfile.contact_no}}" disabled>
+                                            <input type="text" placeholder="Enter your personal contact no."
+                                                class="form-control form-control-line"
+                                                value="+91 {{profile.userProfile.contact_no}}" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -211,15 +343,19 @@
                                     <div class="form-group">
                                         <label class="col-md-12">CGPA<span class="text-danger">*</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter your CGPA" class="form-control form-control-line" value="{{profile.userProfile.cgpa}}" disabled>
+                                            <input type="text" placeholder="Enter your CGPA"
+                                                class="form-control form-control-line"
+                                                value="{{profile.userProfile.cgpa}}" disabled>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label class="col-md-12">Active Backlogs<span class="text-danger">*</span></label>
+                                        <label class="col-md-12">Active Backlogs<span
+                                                class="text-danger">*</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter Active Backlogs" class="form-control form-control-line" value="N/A" disabled>
+                                            <input type="text" placeholder="Enter Active Backlogs"
+                                                class="form-control form-control-line" value="N/A" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -230,7 +366,10 @@
                                     <div class="form-group">
                                         <label class="col-md-12">10th Percentage (CGPA)</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter your 10th percentage (CGPA)" class="form-control form-control-line" ng-value="profile.userProfile.matric_marks.toString()" ng-model="profile.profileData.matric_marks" required>
+                                            <input type="text" placeholder="Enter your 10th percentage (CGPA)"
+                                                class="form-control form-control-line"
+                                                ng-value="profile.userProfile.matric_marks.toString()"
+                                                ng-model="profile.profileData.matric_marks" required>
                                         </div>
                                     </div>
                                 </div>
@@ -238,7 +377,10 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Board Name</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter your 10th board" class="form-control form-control-line" ng-value="profile.userProfile.matric_board" ng-model="profile.profileData.matric_board" required>
+                                            <input type="text" placeholder="Enter your 10th board"
+                                                class="form-control form-control-line"
+                                                ng-value="profile.userProfile.matric_board"
+                                                ng-model="profile.profileData.matric_board" required>
                                         </div>
                                     </div>
                                 </div>
@@ -249,7 +391,10 @@
                                     <div class="form-group">
                                         <label class="col-md-12">12th Percentage (CGPA)</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter your 12th percentage (CGPA)" class="form-control form-control-line" ng-value="profile.userProfile.senior_marks" ng-model="profile.profileData.senior_marks" required>
+                                            <input type="text" placeholder="Enter your 12th percentage (CGPA)"
+                                                class="form-control form-control-line"
+                                                ng-value="profile.userProfile.senior_marks"
+                                                ng-model="profile.profileData.senior_marks" required>
                                         </div>
                                     </div>
                                 </div>
@@ -257,7 +402,10 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Board Name</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter your 12th board" class="form-control form-control-line" ng-value="profile.userProfile.senior_board" ng-model="profile.profileData.senior_board" required>
+                                            <input type="text" placeholder="Enter your 12th board"
+                                                class="form-control form-control-line"
+                                                ng-value="profile.userProfile.senior_board"
+                                                ng-model="profile.profileData.senior_board" required>
                                         </div>
                                     </div>
                                 </div>
@@ -276,7 +424,10 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Contact No. for Communication</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter your contact no." class="form-control form-control-line" ng-value="profile.userProfile.alternate_contact_no" ng-model="profile.profileData.alternate_contact_no" required>
+                                            <input type="text" placeholder="Enter your contact no."
+                                                class="form-control form-control-line"
+                                                ng-value="profile.userProfile.alternate_contact_no"
+                                                ng-model="profile.profileData.alternate_contact_no" required>
                                         </div>
                                     </div>
                                 </div>
@@ -288,7 +439,10 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Address</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter your address" class="form-control form-control-line" ng-value="profile.userProfile.address" ng-model="profile.profileData.address" required>
+                                            <input type="text" placeholder="Enter your address"
+                                                class="form-control form-control-line"
+                                                ng-value="profile.userProfile.address"
+                                                ng-model="profile.profileData.address" required>
                                         </div>
                                     </div>
                                 </div>
@@ -299,7 +453,10 @@
                                     <div class="form-group">
                                         <label class="col-md-12">City</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter your city" class="form-control form-control-line" ng-value="profile.userProfile.city" ng-model="profile.profileData.city" required>
+                                            <input type="text" placeholder="Enter your city"
+                                                class="form-control form-control-line"
+                                                ng-value="profile.userProfile.city" ng-model="profile.profileData.city"
+                                                required>
                                         </div>
                                     </div>
                                 </div>
@@ -307,7 +464,10 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Post Code</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter your post code" class="form-control form-control-line" ng-value="profile.userProfile.post_code" ng-model="profile.profileData.post_code" required>
+                                            <input type="text" placeholder="Enter your post code"
+                                                class="form-control form-control-line"
+                                                ng-value="profile.userProfile.post_code"
+                                                ng-model="profile.profileData.post_code" required>
                                         </div>
                                     </div>
                                 </div>
@@ -318,7 +478,10 @@
                                     <div class="form-group">
                                         <label class="col-md-12">State</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter your state" class="form-control form-control-line" ng-value="profile.userProfile.state" ng-model="profile.profileData.state" required>
+                                            <input type="text" placeholder="Enter your state"
+                                                class="form-control form-control-line"
+                                                ng-value="profile.userProfile.state"
+                                                ng-model="profile.profileData.state" required>
                                         </div>
                                     </div>
                                 </div>
@@ -326,7 +489,10 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Country</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter your country" class="form-control form-control-line" ng-value="profile.userProfile.country" ng-model="profile.profileData.country" required>
+                                            <input type="text" placeholder="Enter your country"
+                                                class="form-control form-control-line"
+                                                ng-value="profile.userProfile.country"
+                                                ng-model="profile.profileData.country" required>
                                         </div>
                                     </div>
                                 </div>
@@ -337,19 +503,27 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Placement Status</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Enter Placement Status" class="form-control form-control-line" ng-value="profile.userProfile.placement_status" ng-model="profile.profileData.placement_status" value="{{profile.userProfile.placement_status}}" required>
+                                            <input type="text" placeholder="Enter Placement Status"
+                                                class="form-control form-control-line"
+                                                ng-value="profile.userProfile.placement_status"
+                                                ng-model="profile.profileData.placement_status"
+                                                value="{{profile.userProfile.placement_status}}" required>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            
+
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label class="col-md-12">Company 1</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Placed Company Name" class="form-control form-control-line" ng-value="profile.userProfile.company1" ng-model="profile.profileData.company1" value="{{profile.userProfile.company1}}" required>
+                                            <input type="text" placeholder="Placed Company Name"
+                                                class="form-control form-control-line"
+                                                ng-value="profile.userProfile.company1"
+                                                ng-model="profile.profileData.company1"
+                                                value="{{profile.userProfile.company1}}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -359,7 +533,11 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Company 2</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Placed Company Name" class="form-control form-control-line" ng-value="profile.userProfile.company2" ng-model="profile.profileData.company2" value="{{profile.userProfile.company2}}" required>
+                                            <input type="text" placeholder="Placed Company Name"
+                                                class="form-control form-control-line"
+                                                ng-value="profile.userProfile.company2"
+                                                ng-model="profile.profileData.company2"
+                                                value="{{profile.userProfile.company2}}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -369,7 +547,11 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Company 3</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Placed Company Name" class="form-control form-control-line" ng-value="profile.userProfile.company3" ng-model="profile.profileData.company3" value="{{profile.userProfile.company3}}" required>
+                                            <input type="text" placeholder="Placed Company Name"
+                                                class="form-control form-control-line"
+                                                ng-value="profile.userProfile.company3"
+                                                ng-model="profile.profileData.company3"
+                                                value="{{profile.userProfile.company3}}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -379,7 +561,11 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Company 4</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Placed Company Name" class="form-control form-control-line" ng-value="profile.userProfile.company4" ng-model="profile.profileData.company4" value="{{profile.userProfile.company4}}" required>
+                                            <input type="text" placeholder="Placed Company Name"
+                                                class="form-control form-control-line"
+                                                ng-value="profile.userProfile.company4"
+                                                ng-model="profile.profileData.company4"
+                                                value="{{profile.userProfile.company4}}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -388,13 +574,18 @@
                             <div class="form-group">
                                 <label class="col-md-12">LinkedIn Profile Link</label>
                                 <div class="col-md-12">
-                                    <input type="text" placeholder="Enter your social profile link" class="form-control form-control-line" ng-value="profile.userProfile.linkedln_link" ng-model="profile.profileData.linkedln_link" required>
+                                    <input type="text" placeholder="Enter your social profile link"
+                                        class="form-control form-control-line"
+                                        ng-value="profile.userProfile.linkedln_link"
+                                        ng-model="profile.profileData.linkedln_link" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-12">Resume URL</label>
                                 <div class="col-md-12">
-                                    <input type="text" placeholder="Enter Resume URL (Google Drive)" class="form-control form-control-line" ng-value="profile.userProfile.resume_url" ng-model="profile.profileData.resume_url" required>
+                                    <input type="text" placeholder="Enter Resume URL (Google Drive)"
+                                        class="form-control form-control-line" ng-value="profile.userProfile.resume_url"
+                                        ng-model="profile.profileData.resume_url" required>
                                 </div>
                             </div>
 
@@ -417,12 +608,14 @@
 
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-success" ng-disabled="profile.profileUpdateLoadingMsg">Update Profile</button>
+                                    <button type="submit" class="btn btn-success"
+                                        ng-disabled="profile.profileUpdateLoadingMsg">Update Profile</button>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <span class="text-danger">*Non-editable fields. Data directly coming from MIS.</span>
+                                    <span class="text-danger">*Non-editable fields. Data directly coming from
+                                        MIS.</span>
                                 </div>
                             </div>
                         </form>
@@ -433,4 +626,3 @@
     </div>
     <!-- Column -->
 </div>
-

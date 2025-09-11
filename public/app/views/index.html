@@ -147,12 +147,15 @@
 
     <li ng-show="main.isLoggedIn" class="nav-item dropdown">
       <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" style="float:right;" href="#"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/profile/M.png"
-          alt="user" class="img-circle" style="height: 40px; width: 40px;"></a>
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img ng-src="{{ profile.userProfile.profile_pic_url 
+      ? '/assets/uploads/profilePics/' + profile.userProfile.profile_pic_url 
+      : 'assets/images/profile/M.png' }}" alt="user" class="img-circle" width="30" height="30"></a>
       <div class="dropdown-menu justify user-dd animated flipInY">
         <span class="with-arrow"><span class="bg-primary"></span></span>
         <div class="d-flex no-block  p-15 bg-primary text-white m-b-10 float-end" align:right>
-          <div class=""><img src="assets/images/profile/M.png" alt="user" class="img-circle" width="30" height="30">
+          <div class=""><img ng-src="{{ profile.userProfile.profile_pic_url 
+      ? '/assets/uploads/profilePics/' + profile.userProfile.profile_pic_url 
+      : 'assets/images/profile/M.png' }}" alt="user" class="img-circle" width="50" height="50">
           </div>
           <div class="m-l-10">
             <h4 class="m-b-0">{{ main.student_name }}</h4>
